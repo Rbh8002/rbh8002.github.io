@@ -4,29 +4,33 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    // Load GA4 script dynamically and wait for it to finish
     function loadGA(callback) {
       const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF 
-'; // Replace with your GA4 ID
+      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF '; // Replace with your GA4 ID
       script.async = true;
       script.onload = function() {
         window.dataLayer = window.dataLayer || [];
         function gtag(){dataLayer.push(arguments);}
         window.gtag = gtag;
         gtag('js', new Date());
-        gtag('config', 'G-ZC93LJZLLF 
-'); // Replace with your GA4 ID
-        callback();
+        gtag('config', 'G-ZC93LJZLLF '); // Replace with your GA4 ID
+
+        // Optional: fire a custom event for visibility
+        gtag('event', 'landing_page_viewed', {
+          event_category: 'engagement',
+          event_label: 'GitHub redirect page'
+        });
+
+        callback(); // Start redirect timer
       };
       document.head.appendChild(script);
     }
 
-    // Start GA and then redirect
+    // Load GA4, then redirect after 3 seconds
     loadGA(function() {
       setTimeout(function() {
         window.location.href = "https://roberthalls-manuscripts.com/"; // Replace with your Payhip URL
-      }, 3000); // 3 seconds to ensure GA fires
+      }, 3000);
     });
   </script>
 </head>
