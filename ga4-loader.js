@@ -1,19 +1,29 @@
-<!-- ga4-loader.js -->
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    // Load GA4 script
-    const gtagScript = document.createElement("script");
-    gtagScript.src = "https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF 
-"; // Replace with your GA4 ID
-    gtagScript.async = true;
-    document.head.appendChild(gtagScript);
-
-    // Initialize GA4
-    window.dataLayer = window.dataLayer || [];
-    function gtag() { dataLayer.push(arguments); }
-    window.gtag = gtag;
-    gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF 
-'); // Replace with your GA4 ID
-  });
-</script>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>GA4 Test Page</title>
+  <script src="ga4-loader.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 50px;
+      background-color: #f9f9f9;
+    }
+    h1 {
+      color: #333;
+    }
+    img {
+      max-width: 300px;
+      margin-top: 20px;
+    }
+  </style>
+</head>
+<body>
+  <h1>This version forces GA4 to load after DOM is ready.</h1>
+  <p>GA4 Measurement ID: <strong>G-ZC93LJZLLF</strong></p>
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/God_the_Father_16th_century.jpg" alt="Spiritual Image" />
+</body>
+</html>
