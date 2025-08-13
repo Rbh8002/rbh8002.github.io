@@ -4,34 +4,28 @@
   <meta charset="UTF-8">
   <title>Redirecting...</title>
   <script>
-    function loadGA(callback) {
-      const script = document.createElement('script');
-      script.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF '; // Replace with your GA4 ID
-      script.async = true;
-      script.onload = function() {
-        window.dataLayer = window.dataLayer || [];
-        function gtag(){dataLayer.push(arguments);}
-        window.gtag = gtag;
-        gtag('js', new Date());
-        gtag('config', 'G-ZC93LJZLLF '); // Replace with your GA4 ID
-
-        // Optional: fire a custom event for visibility
-        gtag('event', 'landing_page_viewed', {
-          event_category: 'engagement',
-          event_label: 'GitHub redirect page'
-        });
-
-        callback(); // Start redirect timer
+    function sendGAAndRedirect() {
+      // Send a custom event using sendBeacon
+      const payload = {
+        v: '2',
+        tid: 'G-ZC93LJZLLF', // Your GA4 ID
+        cid: '555', // Anonymous client ID
+        t: 'event',
+        en: 'landing_page_viewed'
       };
-      document.head.appendChild(script);
+
+      const params = new URLSearchParams(payload).toString();
+      const url = 'https://www.google-analytics.com/g/collect?' + params;
+
+      navigator.sendBeacon(url);
+
+      // Redirect after beacon is sent
+      setTimeout(function() {
+        window.location.href = "https://roberthalls-manuscripts.com/"; // Replace with your actual Payhip URL
+      }, 1000); // 1 second buffer
     }
 
-    // Load GA4, then redirect after 3 seconds
-    loadGA(function() {
-      setTimeout(function() {
-        window.location.href = "https://roberthalls-manuscripts.com/"; // Replace with your Payhip URL
-      }, 3000);
-    });
+    window.onload = sendGAAndRedirect;
   </script>
 </head>
 <body>
