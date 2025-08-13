@@ -3,27 +3,43 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>GA4 Test Page</title>
+  <title>Redirecting...</title>
+
+  <!-- Load GA4 loader script -->
   <script src="ga4-loader.js"></script>
+
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
-      padding: 50px;
+      padding-top: 50px;
       background-color: #f9f9f9;
     }
     h1 {
       color: #333;
     }
+    p {
+      font-size: 1.1em;
+      color: #555;
+    }
     img {
       max-width: 300px;
       margin-top: 20px;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
     }
   </style>
 </head>
 <body>
-  <h1>This version forces GA4 to load after DOM is ready.</h1>
+  <h1>Redirecting to download page...</h1>
   <p>GA4 Measurement ID: <strong>G-ZC93LJZLLF</strong></p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/6/6e/God_the_Father_16th_century.jpg/640px-God_the_Father_16th_century.jpg" alt="Spiritual Image" />
+  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/God_the_Father_16th_century.jpg" alt="Spiritual Image" />
+
+  <script>
+    // Delay redirect to ensure GA4 has time to fire
+    setTimeout(() => {
+      window.location.href = "https://payhip.com/b/XYZ123"; // Replace with your actual Payhip link
+    }, 3000); // 3 seconds
+  </script>
 </body>
 </html>
