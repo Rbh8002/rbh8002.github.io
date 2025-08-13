@@ -6,15 +6,25 @@
   <title>Redirecting...</title>
 
   <!-- GA4 Tracking Script -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
+    // Load GA4 synchronously for guaranteed execution
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];w[l].push({'gtm.start': new Date().getTime(),event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';
+      j.async=false; // Force synchronous load
+      j.src='https://www.googletagmanager.com/gtag/js?id='+i;
+      f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','G-ZC93LJZLLF');
+
+    // Initialize GA4
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-ZC93LJZLLF');
   </script>
 
-  <!-- Optional Styling -->
+  <!-- Styling -->
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -44,9 +54,10 @@
 
   <!-- Redirect Script -->
   <script>
+    // Ensure GA4 has time to fire before redirect
     setTimeout(() => {
       window.location.href = "https://roberthalls-manuscripts.com/";
-    }, 3000); // 3 seconds delay
+    }, 3000); // 3 seconds
   </script>
 
   <!-- Fallback for No JavaScript -->
