@@ -3,21 +3,31 @@
 <head>
   <meta charset="UTF-8">
   <title>GA4 Test Page</title>
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF');
 
-    gtag('event', 'test_page_loaded', {
-      event_category: 'diagnostics',
-      event_label: 'no redirect'
+    document.addEventListener("DOMContentLoaded", function() {
+      console.log("DOM loaded. Loading GA4...");
+      var script = document.createElement('script');
+      script.src = "https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF";
+      script.async = true;
+      document.head.appendChild(script);
+
+      setTimeout(function() {
+        gtag('js', new Date());
+        gtag('config', 'G-ZC93LJZLLF');
+        gtag('event', 'test_page_loaded', {
+          event_category: 'diagnostics',
+          event_label: 'forced execution'
+        });
+        console.log("GA4 initialized.");
+      }, 500); // Delay to ensure script loads
     });
   </script>
 </head>
 <body>
   <h1>GA4 Test Page</h1>
-  <p>If you see this, the tag should fire without redirect.</p>
+  <p>This version forces GA4 to load after DOM is ready.</p>
 </body>
 </html>
