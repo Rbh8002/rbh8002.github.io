@@ -6,14 +6,23 @@
   <title>Robert Halls Manuscripts</title>
 
   <!-- Google Analytics 4 Direct Embed -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93JLZLF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    gtag('config', 'G-ZC93LJZLLF', {
+    gtag('config', 'G-ZC93JLZLF', {
       send_page_view: true
+    });
+
+    // Re-fire GA4 on back-forward cache restore
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        gtag('config', 'G-ZC93JLZLF', {
+          send_page_view: true
+        });
+      }
     });
   </script>
 
@@ -52,7 +61,7 @@
         event_category: 'Navigation',
         event_label: 'Continue to Manuscript'
       });
-      window.location.href = "https://roberthalls-manuscripts.com/";
+      window.location.href = "https://your-real-manuscript-url.com";
     }
   </script>
 </body>
