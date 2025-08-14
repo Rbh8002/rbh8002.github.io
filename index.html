@@ -21,7 +21,11 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF', { 'debug_mode': true });
+    gtag('config', 'G-ZC93LJZLLF', {
+      page_title: document.title,
+      page_path: window.location.pathname,
+      debug_mode: true
+    });
   </script>
 
   <style>
@@ -80,12 +84,12 @@
   </p>
 
   <div class="image-container">
-    <img src="https://your-image-url.com/image.jpg" alt="Awakening Transcendence">
+    <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Awakening Transcendence">
     <p><em>Our Awakening Transcendence Is Occurring... Now — Robert Hall</em></p>
   </div>
 
   <div class="button-container">
-    <button onclick="gtag('event', 'continue_click', { event_category: 'engagement', event_label: 'Landing to Manuscript' }); setTimeout(() => { window.location.href='https://your-manuscript-url.com'; }, 1500);">
+    <button onclick="gtag('event', 'continue_click', { event_category: 'engagement', event_label: 'Landing to Manuscript' }); setTimeout(() => { window.location.href='https://roberthalls-manuscripts.com'; }, 1500);">
       Continue to Manuscript
     </button>
   </div>
