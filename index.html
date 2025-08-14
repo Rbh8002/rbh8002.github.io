@@ -11,34 +11,28 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-
     gtag('config', 'G-ZC93LJZLLF', { debug_mode: true });
 
-    // Send initial event
     gtag('event', 'page_loaded', {
       event_category: 'Landing',
-      event_label: 'Spiritual Manuscripts Entry',
+      event_label: 'Spiritual Entry',
       value: 1
     });
 
-    // Wait for GA4 to flush, then redirect
-    let redirected = false;
-    function safeRedirect() {
-      if (!redirected) {
-        redirected = true;
-        window.location.href = "https://roberthalls-manuscripts.com/";
-      }
-    }
+    function redirectNow() {
+      gtag('event', 'redirecting', {
+        event_category: 'Landing',
+        event_label: 'Manual Redirect Clicked',
+        value: 1
+      });
 
-    // Use sendBeacon to flush final event
-    window.addEventListener('load', () => {
       navigator.sendBeacon && navigator.sendBeacon(
         'https://www.google-analytics.com/g/collect',
         new Blob([], { type: 'application/json' })
       );
 
-      setTimeout(safeRedirect, 5000); // fallback redirect
-    });
+      window.location.href = "https://roberthalls-manuscripts.com/";
+    }
   </script>
 
   <style>
@@ -66,16 +60,33 @@
       max-width: 100%;
       height: auto;
     }
+    .button {
+      margin-top: 40px;
+    }
+    button {
+      font-size: 16px;
+      padding: 10px 20px;
+      background-color: #333;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+      border-radius: 4px;
+    }
+    button:hover {
+      background-color: #555;
+    }
   </style>
 </head>
 <body>
   <h1>Either God Is or God Isn't</h1>
   <p>
-    Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible. Hell is not a place — it is the absence of God.
+    Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible. Hell is not a place — it is the absence of God. The illusion of separation is the only suffering. And the awakening has already begun.
   </p>
   <div class="image">
     <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Our Awakening Transcendence Is Occurring - Robert Hall">
   </div>
-  <p><em>You’ll be redirected shortly to explore the manuscripts.</em></p>
+  <div class="button">
+    <button onclick="redirectNow()">Continue to Manuscripts</button>
+  </div>
 </body>
 </html>
