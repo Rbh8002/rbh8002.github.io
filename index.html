@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Redirecting to Robert Hall's Manuscripts</title>
+  <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- GA4 Loader Script -->
@@ -25,29 +25,53 @@
     // Log timestamp for visual confirmation
     console.log("GA4 script executed at:", new Date().toISOString());
 
-    // Redirect after 3 seconds
+    // Send final event before redirect
     setTimeout(function() {
+      gtag('event', 'redirecting', {
+        event_category: 'GA4 Loader',
+        event_label: 'Leaving Landing Page',
+        value: 1
+      });
+
       window.location.href = "https://roberthalls-manuscripts.com/";
-    }, 3000);
+    }, 5000); // 5-second delay
   </script>
 
   <style>
     body {
-      font-family: sans-serif;
+      font-family: 'Segoe UI', sans-serif;
       text-align: center;
-      padding-top: 100px;
-      background-color: #f9f9f9;
-    }
-    h1 {
+      padding: 80px 20px;
+      background-color: #f4f4f4;
       color: #333;
     }
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
     p {
-      color: #666;
+      font-size: 16px;
+      line-height: 1.6;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .image {
+      margin-top: 30px;
+    }
+    .image img {
+      max-width: 100%;
+      height: auto;
     }
   </style>
 </head>
 <body>
-  <h1>Preparing your spiritual download...</h1>
-  <p>You’ll be redirected shortly. Thank you for visiting.</p>
+  <h1>Either God Is or God Isn't</h1>
+  <p>
+    Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read.
+  </p>
+  <div class="image">
+    <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Our Awakening Transcendence Is Occurring - Robert Hall">
+  </div>
+  <p><em>You’ll be redirected shortly to explore the manuscripts.</em></p>
 </body>
 </html>
