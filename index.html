@@ -1,43 +1,54 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
-      color: #333;
+      background-color: #f4f4f4;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
     }
     .container {
-      display: flex;
-      flex-direction: row;
-      align-items: flex-start;
-      gap: 40px;
+      max-width: 800px;
+      padding: 20px;
+      background-color: #fff;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      margin: 20px;
     }
-    .text {
-      flex: 2;
+    h1 {
+      font-size: 2em;
+      margin-bottom: 10px;
     }
-    .image {
-      flex: 1;
+    p {
+      font-size: 1.1em;
+      line-height: 1.6;
     }
     img {
       max-width: 100%;
       height: auto;
+      margin-top: 20px;
     }
     button {
-      margin-top: 20px;
-      padding: 10px 20px;
-      font-size: 16px;
-      background-color: #4CAF50;
+      margin-top: 30px;
+      padding: 12px 24px;
+      font-size: 1em;
+      background-color: #0077cc;
       color: white;
       border: none;
+      border-radius: 5px;
       cursor: pointer;
     }
     button:hover {
-      background-color: #45a049;
+      background-color: #005fa3;
     }
   </style>
 
@@ -46,12 +57,9 @@
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
-
-    // Initialize GA4 immediately
     gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF');
+    gtag('config', 'G-ZC93LJZLLF'); // Fires page_view on load
 
-    // Wait for DOM before attaching button logic
     window.addEventListener('DOMContentLoaded', function () {
       const button = document.getElementById('redirect-button');
       if (button) {
@@ -69,19 +77,13 @@
 </head>
 
 <body>
-  <h1>Robert Hall's Spiritual Manuscripts for Transformation</h1>
   <div class="container">
-    <div class="text">
-      <h2>Either God Is or God Isn't</h2>
-      <p>
-        Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible. Hell is not a place — it is the absence of God. The illusion of separation is the only suffering. And the awakening has already begun.
-      </p>
-      <button id="redirect-button">Continue to Manuscript</button>
-    </div>
-    <div class="image">
-      <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Awakening Transcendence">
-      <p><em>Our Awakening Transcendence Is Occurring... Now — Robert Hall</em></p>
-    </div>
+    <h1>Either God Is or God Isn't</h1>
+    <p>
+      Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell.
+    </p>
+    <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Our Awakening Transcendence Is Occurring...Now" />
+    <button id="redirect-button">Continue to Manuscript</button>
   </div>
 </body>
 </html>
