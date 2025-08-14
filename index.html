@@ -58,9 +58,26 @@
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF'); // Fires page_view on load
 
-    window.addEventListener('DOMContentLoaded', function () {
+    gtag('config', 'G-ZC93LJZLLF', {
+      page_title: document.title,
+      page_path: window.location.pathname
+    });
+  </script>
+</head>
+
+<body>
+  <div class="container">
+    <h1>Either God Is or God Isn't</h1>
+    <p>
+      Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell does not exist and it’s impossible to sin against God.
+    </p>
+    <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Our Awakening Transcendence Is Occurring...Now" />
+    <button id="redirect-button">Continue to Manuscript</button>
+  </div>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
       const button = document.getElementById('redirect-button');
       if (button) {
         button.addEventListener('click', function () {
@@ -74,16 +91,5 @@
       }
     });
   </script>
-</head>
-
-<body>
-  <div class="container">
-    <h1>Either God Is or God Isn't</h1>
-    <p>
-      Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell.
-    </p>
-    <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Our Awakening Transcendence Is Occurring...Now" />
-    <button id="redirect-button">Continue to Manuscript</button>
-  </div>
 </body>
 </html>
