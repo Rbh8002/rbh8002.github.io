@@ -1,45 +1,53 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Redirecting...</title>
+  <meta charset="UTF-8">
+  <title>Redirecting to Robert Hall's Manuscripts</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- Load GA4 loader script -->
-  <script src="ga4-loader.js"></script>
+  <!-- GA4 Loader Script -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Enable debug mode and send config
+    gtag('config', 'G-ZC93LJZLLF', { debug_mode: true });
+
+    // Inject test event to confirm execution
+    gtag('event', 'test_event', {
+      event_category: 'GA4 Loader',
+      event_label: 'First Load Trigger',
+      value: 1
+    });
+
+    // Log timestamp for visual confirmation
+    console.log("GA4 script executed at:", new Date().toISOString());
+
+    // Redirect after 3 seconds
+    setTimeout(function() {
+      window.location.href = "https://roberthalls-manuscripts.com/";
+    }, 3000);
+  </script>
 
   <style>
     body {
-      font-family: Arial, sans-serif;
+      font-family: sans-serif;
       text-align: center;
-      padding-top: 50px;
+      padding-top: 100px;
       background-color: #f9f9f9;
     }
     h1 {
       color: #333;
     }
     p {
-      font-size: 1.1em;
-      color: #555;
-    }
-    img {
-      max-width: 300px;
-      margin-top: 20px;
-      border-radius: 8px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      color: #666;
     }
   </style>
 </head>
 <body>
-  <h1>Redirecting to download page...</h1>
-  <p>GA4 Measurement ID: <strong>G-ZC93LJZLLF</strong></p>
-  <img src="https://upload.wikimedia.org/wikipedia/commons/6/6e/God_the_Father_16th_century.jpg" alt="Spiritual Image" />
-
-  <script>
-    // Delay redirect to ensure GA4 has time to fire
-    setTimeout(() => {
-      window.location.href = "https://roberthalls-manuscripts.com/"; // Replace with your actual Payhip link
-    }, 3000); // 3 seconds
-  </script>
+  <h1>Preparing your spiritual download...</h1>
+  <p>You’ll be redirected shortly. Thank you for visiting.</p>
 </body>
 </html>
