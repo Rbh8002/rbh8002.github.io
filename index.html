@@ -4,65 +4,66 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Robert Halls Manuscripts</title>
-
-  <!-- Google Analytics 4 Direct Embed -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93JLZLF"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-
-    gtag('config', 'G-ZC93JLZLF', {
-      send_page_view: true
-    });
-
-    // Re-fire GA4 on back-forward cache restore
-    window.addEventListener('pageshow', function(event) {
-      if (event.persisted) {
-        gtag('config', 'G-ZC93JLZLF', {
-          send_page_view: true
-        });
-      }
-    });
-  </script>
-
   <style>
     body {
       font-family: Arial, sans-serif;
       text-align: center;
       padding: 50px;
-      background-color: #f5f5f5;
+      background-color: #f4f4f4;
     }
     h1 {
       color: #333;
     }
+    p {
+      font-size: 1.2em;
+      color: #666;
+    }
     button {
-      padding: 15px 30px;
-      font-size: 18px;
-      background-color: #0078D4;
+      background-color: #007BFF;
       color: white;
       border: none;
-      border-radius: 5px;
+      padding: 15px 30px;
+      font-size: 1em;
       cursor: pointer;
+      border-radius: 5px;
+      margin-top: 20px;
     }
     button:hover {
-      background-color: #005a9e;
+      background-color: #0056b3;
     }
   </style>
 </head>
 <body>
   <h1>Welcome to Robert Halls' Manuscripts</h1>
   <p>Your spiritual journey begins here.</p>
-  <button onclick="redirect()">Continue to Manuscript</button>
+  <button onclick="window.location.href='https://roberthalls-manuscripts.com/'">Continue to Manuscript</button>
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93JLZLF"></script>
   <script>
-    function redirect() {
-      gtag('event', 'click', {
-        event_category: 'Navigation',
-        event_label: 'Continue to Manuscript'
-      });
-      window.location.href = "https://roberthalls-manuscripts.com/";
-    }
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+
+    gtag('js', new Date());
+    gtag('config', 'G-ZC93JLZLF');
+
+    // Manual page_view trigger
+    gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+
+    // Handle bfcache reloads
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        gtag('event', 'page_view', {
+          page_title: document.title,
+          page_location: window.location.href,
+          page_path: window.location.pathname
+        });
+      }
+    });
   </script>
 </body>
 </html>
