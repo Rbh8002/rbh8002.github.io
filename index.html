@@ -5,32 +5,28 @@
   <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- GA4 Loader -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+  <!-- GA4 Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF', { debug_mode: true });
+    gtag('config', 'G-XXXXXXXXXX', { debug_mode: true });
 
+    // Track page load
     gtag('event', 'page_loaded', {
       event_category: 'Landing',
       event_label: 'Spiritual Entry',
       value: 1
     });
 
+    // Manual redirect function
     function redirectNow() {
-      gtag('event', 'redirecting', {
+      gtag('event', 'redirect_click', {
         event_category: 'Landing',
-        event_label: 'Manual Redirect Clicked',
+        event_label: 'Manual Redirect',
         value: 1
       });
-
-      navigator.sendBeacon && navigator.sendBeacon(
-        'https://www.google-analytics.com/g/collect',
-        new Blob([], { type: 'application/json' })
-      );
-
       window.location.href = "https://roberthalls-manuscripts.com/";
     }
   </script>
@@ -38,23 +34,23 @@
   <style>
     body {
       font-family: 'Segoe UI', sans-serif;
-      text-align: center;
-      padding: 80px 20px;
-      background-color: #f4f4f4;
+      background-color: #f9f9f9;
       color: #333;
+      text-align: center;
+      padding: 60px 20px;
     }
     h1 {
-      font-size: 24px;
+      font-size: 28px;
       margin-bottom: 20px;
     }
     p {
-      font-size: 16px;
+      font-size: 18px;
       line-height: 1.6;
-      max-width: 600px;
+      max-width: 700px;
       margin: 0 auto 30px;
     }
     .image {
-      margin-top: 30px;
+      margin: 30px auto;
     }
     .image img {
       max-width: 100%;
@@ -65,12 +61,12 @@
     }
     button {
       font-size: 16px;
-      padding: 10px 20px;
+      padding: 12px 24px;
       background-color: #333;
       color: #fff;
       border: none;
-      cursor: pointer;
       border-radius: 4px;
+      cursor: pointer;
     }
     button:hover {
       background-color: #555;
