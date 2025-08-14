@@ -1,93 +1,30 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- GA4 Tag -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
-  <!-- GA4 Tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF', { debug_mode: true });
+  // Explicit page_view event
+  gtag('config', 'G-ZC93LJZLLF');
+  gtag('event', 'page_view', {
+    page_title: document.title,
+    page_location: window.location.href,
+    page_path: window.location.pathname
+  });
 
-    // Track page load
-    gtag('event', 'page_loaded', {
-      event_category: 'Landing',
-      event_label: 'Spiritual Entry',
-      value: 1
-    });
-
-    // Attach redirect after DOM is ready
-    window.addEventListener('DOMContentLoaded', function () {
-      const button = document.getElementById('redirect-button');
-      if (button) {
-        button.addEventListener('click', function () {
-          gtag('event', 'redirect_click', {
-            event_category: 'Landing',
-            event_label: 'Manual Redirect',
-            value: 1
-          });
-          window.location.href = "https://roberthalls-manuscripts.com/";
+  // Attach redirect after DOM is ready
+  window.addEventListener('DOMContentLoaded', function () {
+    const button = document.getElementById('redirect-button');
+    if (button) {
+      button.addEventListener('click', function () {
+        gtag('event', 'redirect_click', {
+          event_category: 'Landing',
+          event_label: 'Manual Redirect',
+          value: 1
         });
-      }
-    });
-  </script>
-
-  <style>
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      background-color: #f9f9f9;
-      color: #333;
-      text-align: center;
-      padding: 60px 20px;
+        window.location.href = "https://roberthalls-manuscripts.com/";
+      });
     }
-    h1 {
-      font-size: 28px;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 18px;
-      line-height: 1.6;
-      max-width: 700px;
-      margin: 0 auto 30px;
-    }
-    .image {
-      margin: 30px auto;
-    }
-    .image img {
-      max-width: 100%;
-      height: auto;
-    }
-    .button {
-      margin-top: 40px;
-    }
-    button {
-      font-size: 16px;
-      padding: 12px 24px;
-      background-color: #333;
-      color: #fff;
-      border: none;
-      border-radius: 4px;
-      cursor: pointer;
-    }
-    button:hover {
-      background-color: #555;
-    }
-  </style>
-</head>
-<body>
-  <h1>Either God Is or God Isn't</h1>
-  <p>
-    Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible. Hell is not a place — it is the absence of God. The illusion of separation is the only suffering. And the awakening has already begun.
-  </p>
-  <div class="image">
-    <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Our Awakening Transcendence Is Occurring - Robert Hall">
-  </div>
-  <div class="button">
-    <button id="redirect-button">Continue to Manuscripts</button>
-  </div>
-</body>
-</html>
+  });
+</script>
