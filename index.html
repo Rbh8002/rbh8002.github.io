@@ -1,30 +1,92 @@
-<!-- GA4 Tag -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  // Explicit page_view event
-  gtag('config', 'G-ZC93LJZLLF');
-  gtag('event', 'page_view', {
-    page_title: document.title,
-    page_location: window.location.href,
-    page_path: window.location.pathname
-  });
-
-  // Attach redirect after DOM is ready
-  window.addEventListener('DOMContentLoaded', function () {
-    const button = document.getElementById('redirect-button');
-    if (button) {
-      button.addEventListener('click', function () {
-        gtag('event', 'redirect_click', {
-          event_category: 'Landing',
-          event_label: 'Manual Redirect',
-          value: 1
-        });
-        window.location.href = "https://roberthalls-manuscripts.com/";
-      });
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 40px;
+      background-color: #f9f9f9;
+      color: #333;
     }
-  });
-</script>
+    .container {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      gap: 40px;
+    }
+    .text {
+      flex: 2;
+    }
+    .image {
+      flex: 1;
+    }
+    img {
+      max-width: 100%;
+      height: auto;
+    }
+    button {
+      margin-top: 20px;
+      padding: 10px 20px;
+      font-size: 16px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #45a049;
+    }
+  </style>
+
+  <!-- GA4 Tag -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    // Explicit page_view event
+    gtag('config', 'G-ZC93LJZLLF');
+    gtag('event', 'page_view', {
+      page_title: document.title,
+      page_location: window.location.href,
+      page_path: window.location.pathname
+    });
+
+    // Redirect logic
+    window.addEventListener('DOMContentLoaded', function () {
+      const button = document.getElementById('redirect-button');
+      if (button) {
+        button.addEventListener('click', function () {
+          gtag('event', 'redirect_click', {
+            event_category: 'Landing',
+            event_label: 'Manual Redirect',
+            value: 1
+          });
+          window.location.href = "https://roberthalls-manuscripts.com/";
+        });
+      }
+    });
+  </script>
+</head>
+
+<body>
+  <h1>Robert Hall's Spiritual Manuscripts for Transformation</h1>
+  <div class="container">
+    <div class="text">
+      <h2>Either God Is or God Isn't</h2>
+      <p>
+        Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell.
+      </p>
+      <button id="redirect-button">Continue to Manuscript</button>
+    </div>
+    <div class="image">
+      <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Awakening Transcendence">
+      <p><em>Our Awakening Transcendence Is Occurring... Now — Robert Hall</em></p>
+    </div>
+  </div>
+</body>
+</html>
