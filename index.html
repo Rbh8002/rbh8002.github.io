@@ -1,63 +1,35 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robert Halls Manuscripts</title>
 
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-T76LG2SP');
-  </script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Manual GA4 fallback -->
+  <!-- Google Analytics 4 Direct Embed -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
+
     gtag('config', 'G-ZC93LJZLLF', {
-      page_title: document.title,
-      page_path: window.location.pathname,
-      debug_mode: true
+      send_page_view: true
     });
   </script>
 
   <style>
     body {
       font-family: Arial, sans-serif;
-      margin: 40px;
-      background-color: #f9f9f9;
-      color: #333;
+      text-align: center;
+      padding: 50px;
+      background-color: #f5f5f5;
     }
     h1 {
-      font-size: 2em;
-      margin-bottom: 20px;
-    }
-    p {
-      font-size: 1.2em;
-      line-height: 1.6;
-    }
-    .image-container {
-      margin-top: 30px;
-      text-align: center;
-    }
-    .image-container img {
-      max-width: 300px;
-      height: auto;
-    }
-    .button-container {
-      margin-top: 40px;
-      text-align: center;
+      color: #333;
     }
     button {
-      font-size: 1.2em;
-      padding: 10px 20px;
+      padding: 15px 30px;
+      font-size: 18px;
       background-color: #0078D4;
       color: white;
       border: none;
@@ -65,34 +37,23 @@
       cursor: pointer;
     }
     button:hover {
-      background-color: #005ea2;
+      background-color: #005a9e;
     }
   </style>
 </head>
 <body>
+  <h1>Welcome to Robert Halls' Manuscripts</h1>
+  <p>Your spiritual journey begins here.</p>
+  <button onclick="redirect()">Continue to Manuscript</button>
 
-  <!-- Google Tag Manager (noscript) -->
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-T76LG2SP"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
-  <!-- End Google Tag Manager (noscript) -->
-
-  <h1>Either God Is or God Isn't</h1>
-  <p>
-    Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell does not exist and there’s nothing we can do that’s a sin in God’s Eyes.
-  </p>
-
-  <div class="image-container">
-    <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Awakening Transcendence">
-    <p><em>Our Awakening Transcendence Is Occurring... Now — Robert Hall</em></p>
-  </div>
-
-  <div class="button-container">
-    <button onclick="gtag('event', 'continue_click', { event_category: 'engagement', event_label: 'Landing to Manuscript' }); setTimeout(() => { window.location.href='https://roberthalls-manuscripts.com'; }, 1500);">
-      Continue to Manuscript
-    </button>
-  </div>
-
+  <script>
+    function redirect() {
+      gtag('event', 'click', {
+        event_category: 'Navigation',
+        event_label: 'Continue to Manuscript'
+      });
+      window.location.href = "https://roberthalls-manuscripts.com/";
+    }
+  </script>
 </body>
 </html>
