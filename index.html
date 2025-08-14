@@ -5,36 +5,40 @@
   <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <!-- GA4 Loader Script -->
+  <!-- GA4 Loader -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    // Enable debug mode and send config
     gtag('config', 'G-ZC93LJZLLF', { debug_mode: true });
 
-    // Inject test event to confirm execution
-    gtag('event', 'test_event', {
-      event_category: 'GA4 Loader',
-      event_label: 'First Load Trigger',
+    // Send initial event
+    gtag('event', 'page_loaded', {
+      event_category: 'Landing',
+      event_label: 'Spiritual Manuscripts Entry',
       value: 1
     });
 
-    // Log timestamp for visual confirmation
-    console.log("GA4 script executed at:", new Date().toISOString());
+    // Wait for GA4 to flush, then redirect
+    let redirected = false;
+    function safeRedirect() {
+      if (!redirected) {
+        redirected = true;
+        window.location.href = "https://roberthalls-manuscripts.com/";
+      }
+    }
 
-    // Send final event before redirect
-    setTimeout(function() {
-      gtag('event', 'redirecting', {
-        event_category: 'GA4 Loader',
-        event_label: 'Leaving Landing Page',
-        value: 1
-      });
+    // Use sendBeacon to flush final event
+    window.addEventListener('load', () => {
+      navigator.sendBeacon && navigator.sendBeacon(
+        'https://www.google-analytics.com/g/collect',
+        new Blob([], { type: 'application/json' })
+      );
 
-      window.location.href = "https://roberthalls-manuscripts.com/";
-    }, 5000); // 5-second delay
+      setTimeout(safeRedirect, 5000); // fallback redirect
+    });
   </script>
 
   <style>
@@ -67,7 +71,7 @@
 <body>
   <h1>Either God Is or God Isn't</h1>
   <p>
-    Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read.
+    Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible. Hell is not a place — it is the absence of God.
   </p>
   <div class="image">
     <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Our Awakening Transcendence Is Occurring - Robert Hall">
