@@ -6,14 +6,12 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <!-- GA4 Tag -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF 
-"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF 
-', { debug_mode: true });
+    gtag('config', 'G-ZC93LJZLLF', { debug_mode: true });
 
     // Track page load
     gtag('event', 'page_loaded', {
@@ -22,15 +20,20 @@
       value: 1
     });
 
-    // Manual redirect function
-    function redirectNow() {
-      gtag('event', 'redirect_click', {
-        event_category: 'Landing',
-        event_label: 'Manual Redirect',
-        value: 1
-      });
-      window.location.href = "https://roberthalls-manuscripts.com/";
-    }
+    // Attach redirect after DOM is ready
+    window.addEventListener('DOMContentLoaded', function () {
+      const button = document.getElementById('redirect-button');
+      if (button) {
+        button.addEventListener('click', function () {
+          gtag('event', 'redirect_click', {
+            event_category: 'Landing',
+            event_label: 'Manual Redirect',
+            value: 1
+          });
+          window.location.href = "https://roberthalls-manuscripts.com/";
+        });
+      }
+    });
   </script>
 
   <style>
@@ -84,7 +87,7 @@
     <img src="https://roberthalls-manuscripts.com/assets/awakening-image.jpg" alt="Our Awakening Transcendence Is Occurring - Robert Hall">
   </div>
   <div class="button">
-    <button onclick="redirectNow()">Continue to Manuscripts</button>
+    <button id="redirect-button">Continue to Manuscripts</button>
   </div>
 </body>
 </html>
