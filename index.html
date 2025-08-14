@@ -41,18 +41,18 @@
     }
   </style>
 
-  <!-- GA4 Tag with Debug Mode -->
+  <!-- GA4 Tag for Production -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
 
     window.addEventListener('DOMContentLoaded', function () {
-      // Initialize GA4 with debug mode
+      // Initialize GA4
       gtag('js', new Date());
-      gtag('config', 'G-ZC93LJZLLF', { debug_mode: true });
+      gtag('config', 'G-ZC93LJZLLF');
 
-      // Send explicit page_view event
+      // Send page_view event
       gtag('event', 'page_view', {
         page_title: document.title,
         page_location: window.location.href,
