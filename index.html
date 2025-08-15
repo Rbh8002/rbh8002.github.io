@@ -12,6 +12,18 @@
     gtag('js', new Date());
     gtag('config', 'G-ZC93LJZLLF');
   </script>
+  <script>
+    // Redirect based on query string
+    const params = new URLSearchParams(window.location.search);
+    const format = params.get("format");
+    if (format === "pdf") {
+      window.location.href = "https://roberthalls-manuscripts.com/downloads/Robert_Halls_Manuscript.pdf";
+    } else if (format === "epub") {
+      window.location.href = "https://roberthalls-manuscripts.com/downloads/Robert_Halls_Manuscript.epub";
+    } else if (format === "mobi") {
+      window.location.href = "https://roberthalls-manuscripts.com/downloads/Robert_Halls_Manuscript.mobi";
+    }
+  </script>
   <style>
     body {
       font-family: Georgia, serif;
