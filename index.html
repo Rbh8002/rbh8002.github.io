@@ -3,9 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Robert Halls Manuscripts</title>
-  <link rel="stylesheet" href="styles.css" />
-  
+  <title>Robert Halls' Spiritual Manuscripts</title>
+
   <!-- Google Analytics 4 -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
@@ -17,54 +16,30 @@
 </head>
 <body>
   <main>
-    <section id="intro">
-      <h1>Robert Halls' Spiritual Manuscripts</h1>
-      <p>God is all-powerful and can lift anything. He is also all-knowledge, so can make something He cannot lift.</p>
-      <p>The answer to this ancient paradox is found in my writings and offers beautiful spiritual truths that will bring you growing peace. <strong>Guaranteed.</strong></p>
-      <p>Choose your preferred format below to begin your journey.</p>
-    </section>
-
-    <section id="downloadSection">
-      <h2>📥 Choose Your Format</h2>
-
-      <div class="format-block">
-        <h3>📄 PDF</h3>
-        <p>Works on any computer, phone, or tablet. Opens in browsers and apps like Adobe Reader.</p>
-        <button class="btn" data-format="pdf" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.pdf">Download PDF</button>
-      </div>
-
-      <div class="format-block">
-        <h3>📚 EPUB</h3>
-        <p>Best for Apple Books, Google Play Books, and most e-readers. Reflows text for easy reading.</p>
-        <button class="btn" data-format="epub" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.epub">Download EPUB</button>
-      </div>
-
-      <div class="format-block">
-        <h3>🔥 MOBI</h3>
-        <p>Designed for Amazon Kindle devices and apps.</p>
-        <button class="btn" data-format="mobi" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.mobi">Download MOBI</button>
-      </div>
-
-      <div id="helpTip">
-        <p><strong>Not sure?</strong> Try the PDF—it works almost everywhere.</p>
-      </div>
-    </section>
+    <h1>Robert Halls' Spiritual Manuscripts</h1>
+    <p>God is all-powerful and can lift anything. He is also all-knowledge, so can make something He cannot lift.</p>
+    <p>The answer to this ancient paradox is found in my writings and offers beautiful spiritual truths that will bring you growing peace. <strong>Guaranteed.</strong></p>
   </main>
 
-  <!-- Download Tracking Script -->
+  <!-- Redirect logic based on format query -->
   <script>
-    document.querySelectorAll('.btn').forEach(button => {
-      button.addEventListener('click', () => {
-        const format = button.getAttribute('data-format');
-        const url = button.getAttribute('data-url');
-        gtag('event', 'download', {
-          event_category: 'Manuscript',
-          event_label: format,
-          value: 1
-        });
-        window.location.href = url;
+    const params = new URLSearchParams(window.location.search);
+    const format = params.get('format');
+
+    const urls = {
+      pdf: 'https://roberthalls-manuscripts.com/spiritual-manuscript.pdf',
+      epub: 'https://roberthalls-manuscripts.com/spiritual-manuscript.epub',
+      mobi: 'https://roberthalls-manuscripts.com/spiritual-manuscript.mobi'
+    };
+
+    if (format && urls[format]) {
+      gtag('event', 'download', {
+        event_category: 'Manuscript',
+        event_label: format,
+        value: 1
       });
-    });
+      window.location.href = urls[format];
+    }
   </script>
 </body>
 </html>
