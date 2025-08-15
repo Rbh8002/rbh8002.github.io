@@ -1,72 +1,49 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Robert Halls' Spiritual Manuscripts</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- GA4 Manual Embed -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF');
-  </script>
-  <script>
-    // Redirect based on query string
-    const params = new URLSearchParams(window.location.search);
-    const format = params.get("format");
-    if (format === "pdf") {
-      window.location.href = "https://roberthalls-manuscripts.com/downloads/Robert_Halls_Manuscript.pdf";
-    } else if (format === "epub") {
-      window.location.href = "https://roberthalls-manuscripts.com/downloads/Robert_Halls_Manuscript.epub";
-    } else if (format === "mobi") {
-      window.location.href = "https://roberthalls-manuscripts.com/downloads/Robert_Halls_Manuscript.mobi";
-    }
-  </script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Robert Halls Manuscripts</title>
   <style>
     body {
-      font-family: Georgia, serif;
-      background-color: #fdfdfd;
-      color: #222;
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
       text-align: center;
-      padding: 60px 20px;
-      margin: 0;
+      padding: 50px;
+    }
+    .container {
+      background-color: #fff;
+      padding: 40px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      max-width: 600px;
+      margin: auto;
     }
     h1 {
-      font-size: 2.2em;
+      color: #333;
+    }
+    p {
+      font-size: 18px;
+      color: #555;
       margin-bottom: 30px;
     }
-    .message {
-      font-size: 1.5em;
-      line-height: 1.6;
-      max-width: 800px;
-      margin: 0 auto 50px;
-    }
-    button {
-      font-size: 1.2em;
-      padding: 14px 28px;
-      background-color: #444;
-      color: #fff;
+    .button {
+      background-color: #0078D4;
+      color: white;
+      padding: 15px 30px;
+      font-size: 18px;
       border: none;
-      border-radius: 6px;
+      border-radius: 5px;
       cursor: pointer;
-      transition: background-color 0.3s ease;
+      text-decoration: none;
     }
-    button:hover {
-      background-color: #222;
+    .button:hover {
+      background-color: #005ea2;
     }
   </style>
 </head>
 <body>
-  <h1>Robert Halls' Spiritual Manuscripts</h1>
-
-  <div class="message">
-    God is all-powerful and can lift anything.<br>
-    He is also all-knowing, so can make something He cannot lift.<br><br>
-    The answer to this ancient paradox is found in my writings and offers beautiful spiritual truths that will bring you growing peace. Guaranteed.
-  </div>
-
-  <button onclick="window.location.href='?format=pdf'">Download PDF</button>
-</body>
-</html>
+  <div class="container">
+    <h1>Robert Halls Manuscripts</h1>
+    <p>
+      These manuscripts
