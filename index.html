@@ -1,45 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta charset="UTF-8">
   <title>Robert Halls' Spiritual Manuscripts</title>
-
-  <!-- Google Analytics 4 -->
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- GA4 Manual Embed -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-ZC93LJZLLF');
   </script>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #fdfdfd;
+      color: #222;
+      text-align: center;
+      padding: 60px 20px;
+      margin: 0;
+    }
+    h1 {
+      font-size: 2.2em;
+      margin-bottom: 30px;
+    }
+    .message {
+      font-size: 1.5em;
+      line-height: 1.6;
+      max-width: 800px;
+      margin: 0 auto 50px;
+    }
+    button {
+      font-size: 1.2em;
+      padding: 14px 28px;
+      background-color: #444;
+      color: #fff;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #222;
+    }
+  </style>
 </head>
 <body>
-  <main>
-    <h1>Robert Halls' Spiritual Manuscripts</h1>
-    <p>God is all-powerful and can lift anything. He is also all-knowledge, so can make something He cannot lift.</p>
-    <p>The answer to this ancient paradox is found in my writings and offers beautiful spiritual truths that will bring you growing peace. <strong>Guaranteed.</strong></p>
-  </main>
+  <h1>Robert Halls' Spiritual Manuscripts</h1>
 
-  <!-- Redirect logic based on format query -->
-  <script>
-    const params = new URLSearchParams(window.location.search);
-    const format = params.get('format');
+  <div class="message">
+    God is all-powerful and can lift anything.<br>
+    He is also all-knowing, so can make something He cannot lift.<br><br>
+    The answer to this ancient paradox is found in my writings and offers beautiful spiritual truths that will bring you growing peace. Guaranteed.
+  </div>
 
-    const urls = {
-      pdf: 'https://roberthalls-manuscripts.com/spiritual-manuscript.pdf',
-      epub: 'https://roberthalls-manuscripts.com/spiritual-manuscript.epub',
-      mobi: 'https://roberthalls-manuscripts.com/spiritual-manuscript.mobi'
-    };
-
-    if (format && urls[format]) {
-      gtag('event', 'download', {
-        event_category: 'Manuscript',
-        event_label: format,
-        value: 1
-      });
-      window.location.href = urls[format];
-    }
-  </script>
+  <button onclick="window.location.href='?format=pdf'">Download PDF</button>
 </body>
 </html>
