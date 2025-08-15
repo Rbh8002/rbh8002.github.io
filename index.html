@@ -1,61 +1,105 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>Resilient GA4 Loader</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Spiritual Manuscript</title>
 
-  <!-- 1. Load GA4 Library -->
+  <!-- GA4 Loader -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
-    // 2. Initialize dataLayer & gtag stub
     window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
+    function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
 
-    // 3. Robust loader with retry logic
-    (function robustGA4(){
-      const maxRetries = 10;
-      const retryDelay = 500; // milliseconds
-      let attempts = 0;
-
-      function firePageView() {
-        gtag('event', 'page_view', {
-          page_location: window.location.href,
-          page_path: window.location.pathname + window.location.search,
-          page_title: document.title
-        });
-      }
-
-      function checkGtag() {
-        if (typeof gtag === 'function') {
-          firePageView();
-        } else if (attempts < maxRetries) {
-          attempts++;
-          setTimeout(checkGtag, retryDelay);
-        } else {
-          console.warn('GA4 loader: max retries reached, page_view not sent');
-        }
-      }
-
-      // Trigger on initial DOM ready
-      window.addEventListener('DOMContentLoaded', checkGtag);
-
-      // Re-trigger when restoring from back/forward cache
-      window.addEventListener('pageshow', event => {
-        if (event.persisted) checkGtag();
-      });
-    })();
+    // Initial pageview
+    gtag('config', 'G-ZC93LJZLLF');
   </script>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f9f9f9;
+      text-align: center;
+      padding: 50px;
+    }
+    h1 {
+      color: #333;
+    }
+    p {
+      font-size: 18px;
+      color: #555;
+      max-width: 600px;
+      margin: 0 auto 30px;
+    }
+    .btn {
+      padding: 15px 30px;
+      font-size: 18px;
+      margin: 10px;
+      background-color: #0077cc;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    .btn:hover {
+      background-color: #005fa3;
+    }
+    #downloadSection {
+      display: none;
+      margin-top: 40px;
+    }
+  </style>
 </head>
 <body>
-  <h1>Welcome to My Manuscripts</h1>
-  <p>Tracking your visit... Redirecting shortly.</p>
+  <h1>Welcome to the Spiritual Manuscript</h1>
+  <p>
+    God is all-powerful and can lift anything. He is also all-knowledge—so can He make something He cannot lift? The answer to this ancient paradox is found in my manuscripts, and you’ll read magnificent spiritual truths that will give you growing peace. Guaranteed. —Bob
+  </p>
 
-  <!-- 4. Simple redirect after tracking -->
+  <button class="btn" id="enterBtn">Enter & Download</button>
+
+  <div id="downloadSection">
+    <h2>Select Your Format</h2>
+    <button class="btn" data-format="pdf" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.pdf">Download PDF</button>
+    <button class="btn" data-format="epub" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.epub">Download EPUB</button>
+    <button class="btn" data-format="mobi" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.mobi">Download MOBI</button>
+  </div>
+
   <script>
-    setTimeout(() => {
-      window.location.href = "https://roberthalls-manuscripts.com/";
-    }, 3000);
+    document.getElementById('enterBtn').addEventListener('click', function () {
+      // Log entry event
+      gtag('event', 'enter_site', {
+        event_category: 'engagement',
+        event_label: 'intro_button_click',
+        value: 1
+      });
+
+      // Reveal download section
+      document.getElementById('downloadSection').style.display = 'block';
+
+      // Optionally hide intro button
+      this.style.display = 'none';
+    });
+
+    document.querySelectorAll('#downloadSection .btn').forEach(function(button) {
+      button.addEventListener('click', function () {
+        const format = button.getAttribute('data-format');
+        const url = button.getAttribute('data-url');
+
+        // Fire GA4 download event
+        gtag('event', 'download', {
+          event_category: 'engagement',
+          event_label: `spiritual-manuscript.${format}`,
+          value: 1
+        });
+
+        // Redirect after short delay
+        setTimeout(function () {
+          window.location.href = url;
+        }, 300);
+      });
+    });
   </script>
 </body>
 </html>
