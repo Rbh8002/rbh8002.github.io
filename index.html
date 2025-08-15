@@ -55,9 +55,13 @@
       window.dataLayer.push({
         event: 'visit_full_site_click',
         button_text: 'Visit the Full Site',
-        destination_url: 'https://roberthallspiritual.com'
+        destination_url: 'https://roberthalls-manuscripts.com'
       });
-      window.location.href = 'https://roberthallspiritual.com';
+
+      // Short delay to ensure GTM logs the event
+      setTimeout(() => {
+        window.location.href = 'https://roberthalls-manuscripts.com';
+      }, 300);
     });
   </script>
 
