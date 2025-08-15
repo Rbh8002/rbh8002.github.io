@@ -3,101 +3,62 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Spiritual Manuscript</title>
-
-  <!-- GA4 Loader -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+  <title>Robert Halls Manuscripts</title>
+  <link rel="stylesheet" href="styles.css" />
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-
-    // Initial pageview
-    gtag('config', 'G-ZC93LJZLLF');
+    gtag('config', 'G-XXXXXXX');
   </script>
-
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f9f9f9;
-      text-align: center;
-      padding: 50px;
-    }
-    h1 {
-      color: #333;
-    }
-    p {
-      font-size: 18px;
-      color: #555;
-      max-width: 600px;
-      margin: 0 auto 30px;
-    }
-    .btn {
-      padding: 15px 30px;
-      font-size: 18px;
-      margin: 10px;
-      background-color: #0077cc;
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-    }
-    .btn:hover {
-      background-color: #005fa3;
-    }
-    #downloadSection {
-      display: none;
-      margin-top: 40px;
-    }
-  </style>
 </head>
 <body>
-  <h1>Welcome to the Spiritual Manuscript</h1>
-  <p>
-    God is all-powerful and can lift anything. He is also all-knowledge—so can He make something He cannot lift? The answer to this ancient paradox is found in my manuscripts, and you’ll read magnificent spiritual truths that will give you growing peace. Guaranteed. —Bob
-  </p>
+  <main>
+    <section id="intro">
+      <h1>Welcome to Robert Halls' Spiritual Manuscripts</h1>
+      <p>These writings are offered freely to inspire clarity, transformation, and spiritual insight.</p>
+      <p>Please select your preferred format below. If you're unsure, PDF works on most devices.</p>
+    </section>
 
-  <button class="btn" id="enterBtn">Enter & Download</button>
+    <section id="downloadSection">
+      <h2>📥 Choose Your Format</h2>
 
-  <div id="downloadSection">
-    <h2>Select Your Format</h2>
-    <button class="btn" data-format="pdf" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.pdf">Download PDF</button>
-    <button class="btn" data-format="epub" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.epub">Download EPUB</button>
-    <button class="btn" data-format="mobi" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.mobi">Download MOBI</button>
-  </div>
+      <div class="format-block">
+        <h3>📄 PDF</h3>
+        <p>Works on any computer, phone, or tablet. Opens in browsers and apps like Adobe Reader.</p>
+        <button class="btn" data-format="pdf" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.pdf">Download PDF</button>
+      </div>
+
+      <div class="format-block">
+        <h3>📚 EPUB</h3>
+        <p>Best for Apple Books, Google Play Books, and most e-readers. Reflows text for easy reading.</p>
+        <button class="btn" data-format="epub" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.epub">Download EPUB</button>
+      </div>
+
+      <div class="format-block">
+        <h3>🔥 MOBI</h3>
+        <p>Designed for Amazon Kindle devices and apps.</p>
+        <button class="btn" data-format="mobi" data-url="https://roberthalls-manuscripts.com/spiritual-manuscript.mobi">Download MOBI</button>
+      </div>
+
+      <div id="helpTip">
+        <p><strong>Not sure?</strong> Try the PDF—it works almost everywhere.</p>
+      </div>
+    </section>
+  </main>
 
   <script>
-    document.getElementById('enterBtn').addEventListener('click', function () {
-      // Log entry event
-      gtag('event', 'enter_site', {
-        event_category: 'engagement',
-        event_label: 'intro_button_click',
-        value: 1
-      });
-
-      // Reveal download section
-      document.getElementById('downloadSection').style.display = 'block';
-
-      // Optionally hide intro button
-      this.style.display = 'none';
-    });
-
-    document.querySelectorAll('#downloadSection .btn').forEach(function(button) {
-      button.addEventListener('click', function () {
+    document.querySelectorAll('.btn').forEach(button => {
+      button.addEventListener('click', () => {
         const format = button.getAttribute('data-format');
         const url = button.getAttribute('data-url');
-
-        // Fire GA4 download event
         gtag('event', 'download', {
-          event_category: 'engagement',
-          event_label: `spiritual-manuscript.${format}`,
+          event_category: 'Manuscript',
+          event_label: format,
           value: 1
         });
-
-        // Redirect after short delay
-        setTimeout(function () {
-          window.location.href = url;
-        }, 300);
+        window.location.href = url;
       });
     });
   </script>
