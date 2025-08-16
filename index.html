@@ -85,17 +85,28 @@
   <script>
     window.dataLayer = window.dataLayer || [];
 
-    // Fire page_loaded on initial and restored sessions
-    window.addEventListener('pageshow', function(event) {
-      dataLayer.push({ event: 'page_loaded', restored: event.persisted });
+    function firePageLoadEvent() {
+      // Slight delay ensures GTM is initialized
+      setTimeout(() => {
+        dataLayer.push({ event: 'page_loaded' });
+      }, 100);
+    }
 
+    window.addEventListener('pageshow', function(event) {
+      firePageLoadEvent();
+
+      // Optional: flag restored sessions
+      if (event.persisted) {
+        dataLayer.push({ restored_session: true });
+      }
+
+      // Optional: enable debug mode via URL param
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('debug_mode') === 'true') {
         dataLayer.push({ debug_mode: true });
       }
     });
 
-    // Button click tracking and redirect
     document.getElementById('visitBtn').addEventListener('click', function() {
       dataLayer.push({
         event: 'visit_full_site_click',
@@ -103,7 +114,7 @@
         destination_url: 'https://roberthalls-manuscripts.com'
       });
 
-      // Delay to ensure GTM event fires before navigation
+      // Delay to ensure GTM logs the event
       setTimeout(() => {
         location.replace('https://roberthalls-manuscripts.com');
       }, 300);
