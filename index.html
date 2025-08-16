@@ -10,6 +10,16 @@
   <meta http-equiv="expires" content="0">
   <meta http-equiv="pragma" content="no-cache">
 
+  <!-- Google Tag Manager -->
+  <script>
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-58NRHM6R');
+  </script>
+  <!-- End Google Tag Manager -->
+
   <style>
     body {
       font-family: sans-serif;
@@ -38,22 +48,6 @@
       background-color: #34495e;
     }
   </style>
-
-  <!-- Google Tag Manager -->
-  <script>
-    window.dataLayer = window.dataLayer || [];
-
-    // Push custom event to ensure GTM fires on page load
-    window.dataLayer.push({ event: 'page_loaded' });
-
-    // Optional: Enable debug mode via URL param
-    const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get('debug_mode') === 'true') {
-      window.dataLayer.push({ debug_mode: true });
-    }
-  </script>
-  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R"></script>
-  <!-- End Google Tag Manager -->
 </head>
 
 <body>
@@ -64,6 +58,25 @@
   <button onclick="handleVisit()">Visit the Full Site</button>
 
   <script>
+    // Fire page_loaded only after DOM is ready and GTM is initialized
+    window.addEventListener('DOMContentLoaded', function() {
+      if (window.dataLayer) {
+        window.dataLayer.push({ event: 'page_loaded' });
+
+        // Optional: Enable debug mode via URL param
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('debug_mode') === 'true') {
+          window.dataLayer.push({ debug_mode: true });
+        }
+      } else {
+        // Fallback in case GTM isn't ready yet
+        setTimeout(() => {
+          window.dataLayer = window.dataLayer || [];
+          window.dataLayer.push({ event: 'page_loaded' });
+        }, 500);
+      }
+    });
+
     function handleVisit() {
       window.dataLayer.push({
         event: 'visit_full_site_click',
@@ -71,7 +84,6 @@
         destination_url: 'https://roberthalls-manuscripts.com'
       });
 
-      // Short delay to ensure GTM logs the event
       setTimeout(() => {
         location.replace('https://roberthalls-manuscripts.com');
       }, 300);
