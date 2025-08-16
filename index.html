@@ -58,22 +58,14 @@
   <button onclick="handleVisit()">Visit the Full Site</button>
 
   <script>
-    // Fire page_loaded only after DOM is ready and GTM is initialized
-    window.addEventListener('DOMContentLoaded', function() {
-      if (window.dataLayer) {
-        window.dataLayer.push({ event: 'page_loaded' });
+    // Fire page_loaded even on restored sessions
+    window.addEventListener('pageshow', function() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'page_loaded' });
 
-        // Optional: Enable debug mode via URL param
-        const urlParams = new URLSearchParams(window.location.search);
-        if (urlParams.get('debug_mode') === 'true') {
-          window.dataLayer.push({ debug_mode: true });
-        }
-      } else {
-        // Fallback in case GTM isn't ready yet
-        setTimeout(() => {
-          window.dataLayer = window.dataLayer || [];
-          window.dataLayer.push({ event: 'page_loaded' });
-        }, 500);
+      const urlParams = new URLSearchParams(window.location.search);
+      if (urlParams.get('debug_mode') === 'true') {
+        window.dataLayer.push({ debug_mode: true });
       }
     });
 
