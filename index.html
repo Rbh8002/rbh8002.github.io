@@ -6,80 +6,108 @@
   <title>Robert Hall's Spiritual Manuscripts</title>
 
   <!-- Cache-control to prevent session restoration skipping scripts -->
-  <meta http-equiv="cache-control" content="no-cache">
-  <meta http-equiv="expires" content="0">
-  <meta http-equiv="pragma" content="no-cache">
+  <meta http-equiv="cache-control" content="no-cache" />
+  <meta http-equiv="expires" content="0" />
+  <meta http-equiv="pragma" content="no-cache" />
 
   <!-- Google Tag Manager -->
   <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f=d.getElementsByTagName(s)[0],
+          j=d.createElement(s),
+          dl=l!='dataLayer'?'&l='+l:'';
+      j.async=true;
+      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-58NRHM6R');
   </script>
   <!-- End Google Tag Manager -->
 
   <style>
-    body {
-      font-family: sans-serif;
-      background: #f9f9f9;
-      text-align: center;
-      padding: 4rem 1rem;
+    :root {
+      --primary-color: #2c3e50;
+      --hover-color: #34495e;
+      --bg-color: #f9f9f9;
+      --font-family: sans-serif;
     }
+
+    body {
+      margin: 0;
+      font-family: var(--font-family);
+      background-color: var(--bg-color);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      text-align: center;
+      padding: 2rem;
+    }
+
     h1 {
       font-size: 2rem;
       margin-bottom: 1rem;
     }
+
     p {
       font-size: 1.1rem;
       margin-bottom: 2rem;
+      max-width: 600px;
     }
+
     button {
       font-size: 1rem;
       padding: 0.75rem 1.5rem;
-      background-color: #2c3e50;
+      background-color: var(--primary-color);
       color: white;
       border: none;
       border-radius: 5px;
       cursor: pointer;
+      transition: background-color 0.3s ease;
     }
+
     button:hover {
-      background-color: #34495e;
+      background-color: var(--hover-color);
     }
   </style>
 </head>
 
 <body>
-  <h1>Welcome to Robert Hall's Spiritual Manuscripts</h1>
-  <p>Explore transformative insights and download the full collection.</p>
+  <main>
+    <h1>Welcome to Robert Hall's Spiritual Manuscripts</h1>
+    <p>Discover transformative insights that illuminate the path to clarity and purpose.</p>
+    <button id="visitBtn" aria-label="Visit the full site">Visit the Full Site</button>
+  </main>
 
-  <!-- Button using location.replace for full navigation -->
-  <button onclick="handleVisit()">Visit the Full Site</button>
-
+  <!-- GTM Event Tracking and Navigation -->
   <script>
-    // Fire page_loaded even on restored sessions
-    window.addEventListener('pageshow', function() {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'page_loaded' });
+    window.dataLayer = window.dataLayer || [];
+
+    // Fire page_loaded on initial and restored sessions
+    window.addEventListener('pageshow', function(event) {
+      dataLayer.push({ event: 'page_loaded', restored: event.persisted });
 
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('debug_mode') === 'true') {
-        window.dataLayer.push({ debug_mode: true });
+        dataLayer.push({ debug_mode: true });
       }
     });
 
-    function handleVisit() {
-      window.dataLayer.push({
+    // Button click tracking and redirect
+    document.getElementById('visitBtn').addEventListener('click', function() {
+      dataLayer.push({
         event: 'visit_full_site_click',
         button_text: 'Visit the Full Site',
         destination_url: 'https://roberthalls-manuscripts.com'
       });
 
+      // Delay to ensure GTM event fires before navigation
       setTimeout(() => {
         location.replace('https://roberthalls-manuscripts.com');
       }, 300);
-    }
+    });
   </script>
 
   <!-- Google Tag Manager (noscript fallback) -->
