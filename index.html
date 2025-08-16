@@ -4,6 +4,12 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Robert Hall's Spiritual Manuscripts</title>
+
+  <!-- Cache-control to prevent session restoration skipping scripts -->
+  <meta http-equiv="cache-control" content="no-cache">
+  <meta http-equiv="expires" content="0">
+  <meta http-equiv="pragma" content="no-cache">
+
   <style>
     body {
       font-family: sans-serif;
@@ -36,6 +42,11 @@
   <!-- Google Tag Manager -->
   <script>
     window.dataLayer = window.dataLayer || [];
+
+    // Push custom event to ensure GTM fires on page load
+    window.dataLayer.push({ event: 'page_loaded' });
+
+    // Optional: Enable debug mode via URL param
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get('debug_mode') === 'true') {
       window.dataLayer.push({ debug_mode: true });
@@ -48,10 +59,12 @@
 <body>
   <h1>Welcome to Robert Hall's Spiritual Manuscripts</h1>
   <p>Explore transformative insights and download the full collection.</p>
-  <button id="visitFullSite">Visit the Full Site</button>
+
+  <!-- Button using location.replace for full navigation -->
+  <button onclick="handleVisit()">Visit the Full Site</button>
 
   <script>
-    document.getElementById('visitFullSite').addEventListener('click', function () {
+    function handleVisit() {
       window.dataLayer.push({
         event: 'visit_full_site_click',
         button_text: 'Visit the Full Site',
@@ -60,9 +73,9 @@
 
       // Short delay to ensure GTM logs the event
       setTimeout(() => {
-        window.location.href = 'https://roberthalls-manuscripts.com';
+        location.replace('https://roberthalls-manuscripts.com');
       }, 300);
-    });
+    }
   </script>
 
   <!-- Google Tag Manager (noscript fallback) -->
