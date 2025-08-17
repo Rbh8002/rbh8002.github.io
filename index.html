@@ -47,7 +47,52 @@
     });
   </script>
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R"></script>
+
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){ dataLayer.push(arguments); }
+    gtag('js', new Date());
+    gtag('config', 'G-ZC93LJZLLF');
+  </script>
+
+  <!-- Re-inject GTM & GA4 on bfcache restore -->
+  <script>
+    window.addEventListener('pageshow', function(event) {
+      if (!event.persisted) return;
+
+      // Remove old GTM
+      var oldGTM = document.querySelector('script[src*="gtm.js?id=GTM-58NRHM6R"]');
+      if (oldGTM) oldGTM.remove();
+      // Re-inject GTM
+      var newGTM = document.createElement('script');
+      newGTM.async = true;
+      newGTM.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R';
+      document.head.appendChild(newGTM);
+
+      // Remove old GA4
+      var oldGA = document.querySelector('script[src*="gtag/js?id=G-ZC93LJZLLF"]');
+      if (oldGA) oldGA.remove();
+      // Re-inject GA4
+      var newGA = document.createElement('script');
+      newGA.async = true;
+      newGA.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF';
+      document.head.appendChild(newGA);
+
+      // Reinitialize GA4 config
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+      gtag('js', new Date());
+      gtag('config', 'G-ZC93LJZLLF');
+
+      // Fire custom page_loaded event
+      dataLayer.push({ event: 'page_loaded' });
+      console.log('bfcache restore → GTM & GA4 reloaded');
+    });
+  </script>
 </head>
+
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
@@ -62,33 +107,18 @@
   <button id="visitBtn">Visit the Full Site</button>
 
   <script>
-    // Detect true page loads vs. bfcache/back-forward restores
-    window.addEventListener('pageshow', function(event) {
-      // navigation entry (modern) or fallback (legacy)
-      const navEntries = performance.getEntriesByType('navigation');
-      const navType = navEntries.length
-        ? navEntries[0].type
-        : performance.navigation.type; // 2 = back_forward
-
-      if (event.persisted || navType === 'back_forward' || navType === 2) {
-        console.log('bfcache detected → forcing full reload');
-        location.replace(location.href);
-        return;
-      }
-
-      // On fresh load, fire your custom event
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'page_loaded' });
-      console.log('GTM event pushed: page_loaded');
-    });
+    // Fire page_loaded on true navigation
+    var nav = performance.getEntriesByType('navigation')[0];
+    var isNav = !nav || nav.type === 'navigate';
+    if (isNav) {
+      dataLayer.push({ event: 'page_loaded' });
+      console.log('fresh load → page_loaded');
+    }
 
     // Track button clicks then redirect
     document.getElementById('visitBtn').addEventListener('click', function() {
-      window.dataLayer = window.dataLayer || [];
-      window.dataLayer.push({ event: 'visit_full_site_click' });
-      console.log('GTM event pushed: visit_full_site_click');
-
-      // Give GTM a moment before navigating
+      dataLayer.push({ event: 'visit_full_site_click' });
+      console.log('visit_full_site_click');
       setTimeout(function() {
         location.href = 'https://roberthalls-manuscripts.com/';
       }, 200);
