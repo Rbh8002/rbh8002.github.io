@@ -3,9 +3,15 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta http-equiv="Cache-Control" content="no-store" />
+
+  <!-- Strong Cache-Control to force real reloads -->
+  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
+
   <title>Enter the Message</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
+
   <style>
     html, body {
       margin: 0;
@@ -20,60 +26,72 @@
       flex-direction: column;
     }
     button {
+      margin-top: 1em;
+      padding: 1em 2em;
+      font-size: 1.2em;
       background: #fff;
       color: #000;
       border: none;
-      padding: 1em 2em;
-      font-size: 1.2em;
       cursor: pointer;
-      margin-top: 1em;
     }
   </style>
 
-  <!-- Initialize dataLayer -->
+  <!-- Google Tag Manager Snippet (Head) -->
   <script>
     window.dataLayer = window.dataLayer || [];
-  </script>
-
-  <!-- Google Tag Manager -->
-  <script>
-    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-    })(window,document,'script','dataLayer','GTM-58NRHM6R');
-  </script>
-  <!-- End Google Tag Manager -->
-
-  <!-- Force reload if restored from bfcache or back/forward -->
-  <script>
-    window.addEventListener('pageshow', function(event) {
-      if (event.persisted || performance.getEntriesByType("navigation")[0]?.type === "back_forward") {
-        console.log("Restored session detected. Reloading...");
-        window.location.reload(true);
-      }
+    window.dataLayer.push({
+      'gtm.start': new Date().getTime(),
+      event: 'gtm.js'
     });
   </script>
+  <script async
+    src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R">
+  </script>
+  <!-- End GTM Snippet -->
 </head>
 
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
-    height="0" width="0" style="display:none;visibility:hidden"></iframe>
+      height="0" width="0"
+      style="display:none;visibility:hidden">
+    </iframe>
   </noscript>
-  <!-- End Google Tag Manager (noscript) -->
+  <!-- End GTM noscript -->
 
   <h1>Enter the Message</h1>
-  <button onclick="handleClick()">Visit the Full Site</button>
+  <button id="visitBtn">Visit the Full Site</button>
 
   <script>
-    function handleClick() {
-      if (window.dataLayer) {
-        dataLayer.push({ event: 'visit_full_site_click' });
+    // Handle both fresh loads AND bfcache/back-forward restores
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted ||
+         performance.getEntriesByType('navigation')[0]?.type === 'back_forward') {
+        console.log('Restored session detected → forcing a real reload');
+        // Replace current history entry to avoid infinite loop
+        location.replace(location.href);
+        return;
       }
-      window.location.href = 'https://roberthalls-manuscripts.com';
-    }
+
+      // On a true load, push your custom event
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'page_loaded' });
+      console.log('GTM event pushed: page_loaded');
+    });
+
+    // Button click tracking + redirect
+    document.getElementById('visitBtn')
+      .addEventListener('click', function() {
+        window.dataLayer = window.dataLayer || [];
+        window.dataLayer.push({ event: 'visit_full_site_click' });
+        console.log('GTM event pushed: visit_full_site_click');
+
+        // Short delay ensures GTM sees the event
+        setTimeout(function() {
+          window.location.href = 'https://roberthalls-manuscripts.com';
+        }, 200);
+      });
   </script>
 </body>
 </html>
