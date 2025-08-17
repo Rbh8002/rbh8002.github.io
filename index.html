@@ -48,7 +48,7 @@
   </script>
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R"></script>
 
-  <!-- Google Analytics 4 -->
+  <!-- Google Analytics 4 (Head) -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -57,39 +57,55 @@
     gtag('config', 'G-ZC93LJZLLF');
   </script>
 
-  <!-- Re-inject GTM & GA4 on bfcache restore -->
+  <!-- Universal Analytics Reinjection on Lifecycle Events -->
   <script>
-    window.addEventListener('pageshow', function(event) {
-      if (!event.persisted) return;
+    (function(){
+      var GTM_ID = 'GTM-58NRHM6R',
+          GA_ID  = 'G-ZC93LJZLLF';
 
-      // Remove old GTM
-      var oldGTM = document.querySelector('script[src*="gtm.js?id=GTM-58NRHM6R"]');
-      if (oldGTM) oldGTM.remove();
-      // Re-inject GTM
-      var newGTM = document.createElement('script');
-      newGTM.async = true;
-      newGTM.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R';
-      document.head.appendChild(newGTM);
+      function initAnalytics(){
+        // GTM reinjection
+        if (!document.querySelector('script[src*="'+GTM_ID+'"]')) {
+          var s = document.createElement('script');
+          s.async = true;
+          s.src   = 'https://www.googletagmanager.com/gtm.js?id=' + GTM_ID;
+          document.head.appendChild(s);
+        }
 
-      // Remove old GA4
-      var oldGA = document.querySelector('script[src*="gtag/js?id=G-ZC93LJZLLF"]');
-      if (oldGA) oldGA.remove();
-      // Re-inject GA4
-      var newGA = document.createElement('script');
-      newGA.async = true;
-      newGA.src = 'https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF';
-      document.head.appendChild(newGA);
+        // GA4 reinjection
+        if (!document.querySelector('script[src*="'+GA_ID+'"]')) {
+          var g = document.createElement('script');
+          g.async = true;
+          g.src   = 'https://www.googletagmanager.com/gtag/js?id=' + GA_ID;
+          document.head.appendChild(g);
 
-      // Reinitialize GA4 config
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){ dataLayer.push(arguments); }
-      gtag('js', new Date());
-      gtag('config', 'G-ZC93LJZLLF');
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){ dataLayer.push(arguments); }
+          gtag('js', new Date());
+          gtag('config', GA_ID);
+        }
 
-      // Fire custom page_loaded event
-      dataLayer.push({ event: 'page_loaded' });
-      console.log('bfcache restore → GTM & GA4 reloaded');
-    });
+        // Always fire custom page_loaded
+        window.dataLayer.push({ event: 'page_loaded' });
+        console.log('Analytics init @ ' + new Date().toISOString());
+      }
+
+      // First load
+      window.addEventListener('load', initAnalytics);
+
+      // Back–forward cache restore
+      window.addEventListener('pageshow', function(e){
+        if (e.persisted) initAnalytics();
+      });
+
+      // When tab becomes visible again
+      document.addEventListener('visibilitychange', function(){
+        if (document.visibilityState === 'visible') initAnalytics();
+      });
+
+      // When window regains focus
+      window.addEventListener('focus', initAnalytics);
+    })();
   </script>
 </head>
 
@@ -107,17 +123,9 @@
   <button id="visitBtn">Visit the Full Site</button>
 
   <script>
-    // Fire page_loaded on true navigation
-    var nav = performance.getEntriesByType('navigation')[0];
-    var isNav = !nav || nav.type === 'navigate';
-    if (isNav) {
-      dataLayer.push({ event: 'page_loaded' });
-      console.log('fresh load → page_loaded');
-    }
-
     // Track button clicks then redirect
     document.getElementById('visitBtn').addEventListener('click', function() {
-      dataLayer.push({ event: 'visit_full_site_click' });
+      window.dataLayer.push({ event: 'visit_full_site_click' });
       console.log('visit_full_site_click');
       setTimeout(function() {
         location.href = 'https://roberthalls-manuscripts.com/';
