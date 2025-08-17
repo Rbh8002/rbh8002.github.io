@@ -89,20 +89,22 @@
 
   <!-- GTM Event Tracking and Navigation -->
   <script>
-    function firePageLoadEvent() {
+    window.addEventListener('pageshow', function(event) {
+      if (event.persisted) {
+        console.log("Restored session detected. Re-injecting GTM...");
+        var gtmScript = document.createElement('script');
+        gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R';
+        gtmScript.async = true;
+        document.head.appendChild(gtmScript);
+
+        dataLayer.push({ event: 'restored_session' });
+        console.log("GTM Event: restored_session");
+      }
+
       setTimeout(() => {
         dataLayer.push({ event: 'page_loaded' });
         console.log("GTM Event: page_loaded");
       }, 100);
-    }
-
-    window.addEventListener('pageshow', function(event) {
-      firePageLoadEvent();
-
-      if (event.persisted) {
-        dataLayer.push({ event: 'restored_session' });
-        console.log("GTM Event: restored_session");
-      }
 
       const urlParams = new URLSearchParams(window.location.search);
       if (urlParams.get('debug_mode') === 'true') {
