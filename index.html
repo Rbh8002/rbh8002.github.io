@@ -3,134 +3,72 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Robert Hall's Spiritual Manuscripts</title>
+  <title>Enter the Message</title>
+  <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
+  <style>
+    html, body {
+      margin: 0;
+      padding: 0;
+      background: #000;
+      color: #fff;
+      font-family: sans-serif;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+    }
+    button {
+      background: #fff;
+      color: #000;
+      border: none;
+      padding: 1em 2em;
+      font-size: 1.2em;
+      cursor: pointer;
+      margin-top: 1em;
+    }
+  </style>
 
-  <!-- Stronger Cache-Control -->
-  <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-  <meta http-equiv="Pragma" content="no-cache" />
-  <meta http-equiv="Expires" content="0" />
-
-  <!-- Initialize dataLayer BEFORE GTM loads -->
+  <!-- Initialize dataLayer -->
   <script>
     window.dataLayer = window.dataLayer || [];
   </script>
 
   <!-- Google Tag Manager -->
   <script>
-    console.log("Injecting GTM...");
-    (function(w,d,s,l,i){
-      w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
-      var f=d.getElementsByTagName(s)[0],
-          j=d.createElement(s),
-          dl=l!='dataLayer'?'&l='+l:'';
-      j.async=true;
-      j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
     })(window,document,'script','dataLayer','GTM-58NRHM6R');
   </script>
   <!-- End Google Tag Manager -->
 
-  <style>
-    :root {
-      --primary-color: #2c3e50;
-      --hover-color: #34495e;
-      --bg-color: #f9f9f9;
-      --font-family: sans-serif;
+  <!-- Force reload if restored from bfcache -->
+  <script>
+    if (performance.navigation.type === 2 || performance.getEntriesByType("navigation")[0]?.type === "back_forward") {
+      console.log("Back/forward navigation detected. Forcing reload...");
+      location.href = location.href;
     }
-
-    body {
-      margin: 0;
-      font-family: var(--font-family);
-      background-color: var(--bg-color);
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      min-height: 100vh;
-      text-align: center;
-      padding: 2rem;
-    }
-
-    h1 {
-      font-size: 2rem;
-      margin-bottom: 1rem;
-    }
-
-    p {
-      font-size: 1.1rem;
-      margin-bottom: 2rem;
-      max-width: 600px;
-    }
-
-    button {
-      font-size: 1rem;
-      padding: 0.75rem 1.5rem;
-      background-color: var(--primary-color);
-      color: white;
-      border: none;
-      border-radius: 5px;
-      cursor: pointer;
-      transition: background-color 0.3s ease;
-    }
-
-    button:hover {
-      background-color: var(--hover-color);
-    }
-  </style>
+  </script>
 </head>
 
 <body>
-  <main>
-    <h1>Welcome to Robert Hall's Spiritual Manuscripts</h1>
-    <p>Discover transformative insights that illuminate the path to clarity and purpose.</p>
-    <button id="visitBtn" aria-label="Visit the full site">Visit the Full Site</button>
-  </main>
-
-  <!-- GTM Event Tracking and Navigation -->
-  <script>
-    window.addEventListener('pageshow', function(event) {
-      if (event.persisted) {
-        console.log("Restored session detected. Re-injecting GTM...");
-        var gtmScript = document.createElement('script');
-        gtmScript.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R';
-        gtmScript.async = true;
-        document.head.appendChild(gtmScript);
-
-        dataLayer.push({ event: 'restored_session' });
-        console.log("GTM Event: restored_session");
-      }
-
-      setTimeout(() => {
-        dataLayer.push({ event: 'page_loaded' });
-        console.log("GTM Event: page_loaded");
-      }, 100);
-
-      const urlParams = new URLSearchParams(window.location.search);
-      if (urlParams.get('debug_mode') === 'true') {
-        dataLayer.push({ event: 'debug_mode_enabled' });
-        console.log("GTM Event: debug_mode_enabled");
-      }
-    });
-
-    document.getElementById('visitBtn').addEventListener('click', function() {
-      dataLayer.push({
-        event: 'visit_full_site_click',
-        button_text: 'Visit the Full Site',
-        destination_url: 'https://roberthalls-manuscripts.com'
-      });
-      console.log("GTM Event: visit_full_site_click");
-
-      setTimeout(() => {
-        location.replace('https://roberthalls-manuscripts.com');
-      }, 300);
-    });
-  </script>
-
-  <!-- Google Tag Manager (noscript fallback) -->
+  <!-- Google Tag Manager (noscript) -->
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+    height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <h1>Enter the Message</h1>
+  <button onclick="handleClick()">Visit the Full Site</button>
+
+  <script>
+    function handleClick() {
+      dataLayer.push({ event: 'visit_full_site_click' });
+      window.location.href = 'https://roberthalls-manuscripts.com/fullsite';
+    }
+  </script>
 </body>
 </html>
