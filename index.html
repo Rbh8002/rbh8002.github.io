@@ -2,9 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
+  <!-- Ensure mobile viewport scales correctly -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Strong Cache-Control to force real reloads -->
+  <!-- Strong no-cache directives -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -36,7 +38,7 @@
     }
   </style>
 
-  <!-- Google Tag Manager Snippet (Head) -->
+  <!-- Google Tag Manager (Head) -->
   <script>
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({
@@ -44,54 +46,53 @@
       event: 'gtm.js'
     });
   </script>
-  <script async
-    src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R">
-  </script>
-  <!-- End GTM Snippet -->
+  <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R"></script>
 </head>
-
 <body>
   <!-- Google Tag Manager (noscript) -->
   <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
       height="0" width="0"
       style="display:none;visibility:hidden">
     </iframe>
   </noscript>
-  <!-- End GTM noscript -->
 
   <h1>Enter the Message</h1>
   <button id="visitBtn">Visit the Full Site</button>
 
   <script>
-    // Handle both fresh loads AND bfcache/back-forward restores
+    // Detect true page loads vs. bfcache/back-forward restores
     window.addEventListener('pageshow', function(event) {
-      if (event.persisted ||
-         performance.getEntriesByType('navigation')[0]?.type === 'back_forward') {
-        console.log('Restored session detected → forcing a real reload');
-        // Replace current history entry to avoid infinite loop
+      // navigation entry (modern) or fallback (legacy)
+      const navEntries = performance.getEntriesByType('navigation');
+      const navType = navEntries.length
+        ? navEntries[0].type
+        : performance.navigation.type; // 2 = back_forward
+
+      if (event.persisted || navType === 'back_forward' || navType === 2) {
+        console.log('bfcache detected → forcing full reload');
         location.replace(location.href);
         return;
       }
 
-      // On a true load, push your custom event
+      // On fresh load, fire your custom event
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'page_loaded' });
       console.log('GTM event pushed: page_loaded');
     });
 
-    // Button click tracking + redirect
-    document.getElementById('visitBtn')
-      .addEventListener('click', function() {
-        window.dataLayer = window.dataLayer || [];
-        window.dataLayer.push({ event: 'visit_full_site_click' });
-        console.log('GTM event pushed: visit_full_site_click');
+    // Track button clicks then redirect
+    document.getElementById('visitBtn').addEventListener('click', function() {
+      window.dataLayer = window.dataLayer || [];
+      window.dataLayer.push({ event: 'visit_full_site_click' });
+      console.log('GTM event pushed: visit_full_site_click');
 
-        // Short delay ensures GTM sees the event
-        setTimeout(function() {
-          window.location.href = 'https://roberthalls-manuscripts.com';
-        }, 200);
-      });
+      // Give GTM a moment before navigating
+      setTimeout(function() {
+        location.href = 'https://roberthalls-manuscripts.com/';
+      }, 200);
+    });
   </script>
 </body>
 </html>
