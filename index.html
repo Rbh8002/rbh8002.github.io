@@ -19,7 +19,58 @@
       font-family: sans-serif;
       background-color: #000;
       text-align: center;
+      color: white;
     }
+
+    .hero-section {
+      padding: 60px 20px;
+      background: linear-gradient(to bottom right, #1e3c72, #2a5298);
+    }
+
+    .hero-section img {
+      max-width: 600px;
+      width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(255,255,255,0.3);
+      margin-bottom: 30px;
+    }
+
+    .hero-section h2 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .hero-section p {
+      font-size: 1.2em;
+      max-width: 800px;
+      margin: 0 auto 40px;
+      line-height: 1.6;
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
+    .visit-main-button {
+      display: inline-block;
+      padding: 15px 30px;
+      background-color: #00c9a7;
+      color: white;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: pulse 2.5s infinite;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+    }
+
+    .visit-main-button:hover {
+      background-color: #00e6c3;
+      transform: scale(1.07);
+    }
+
     .paradox-text {
       background-color: #fff;
       color: #007BFF;
@@ -31,6 +82,7 @@
       border-radius: 8px;
       box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
+
     .visit-button {
       display: inline-block;
       margin: 30px auto;
@@ -41,7 +93,9 @@
       text-decoration: none;
       border-radius: 6px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+      transition: background-color 0.3s ease;
     }
+
     .visit-button:hover {
       background-color: #ffe066;
     }
@@ -64,6 +118,18 @@
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
     gtag('config', 'G-ZC93LJZLLF');
+
+    document.addEventListener('DOMContentLoaded', function () {
+      const btn = document.querySelector('.visit-main-button');
+      if (btn) {
+        btn.addEventListener('click', function () {
+          gtag('event', 'main_site_visit', {
+            event_category: 'engagement',
+            event_label: 'transcendence_section'
+          });
+        });
+      }
+    });
   </script>
 
   <!-- Reinjection on bfcache/back-forward restores -->
@@ -101,14 +167,15 @@
     </iframe>
   </noscript>
 
+  <section class="hero-section">
+    <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Transcendence Light">
+    <h2>Awakening Begins Here</h2>
+    <p>
+      My manuscripts allow the concept of transcendence to take center stage. They delve into the profound shift in consciousness that occurs during moments of awakening. These episodes are akin to glimpses beyond the ordinary, where boundaries of self dissolve, and we connect with something far greater. We are exactly as God created us, and just need to remember the magnificent implications of this Divine Truth.
+    </p>
+    <a href="https://roberthalls-manuscripts.com" class="visit-main-button">🌐 Visit the Full Site</a>
+  </section>
+
   <div class="paradox-text">
     <p>
-      God is all-powerful and can lift anything. He is also all-knowledge so can make something He cannot lift.
-      <br><br>
-      The answer to this ancient paradox is found in our manuscripts and offers the most beautiful truths you may have ever read.
-    </p>
-  </div>
-
-  <a href="https://roberthalls-manuscripts.com" class="visit-button">🌐 Visit the Full Site</a>
-</body>
-</html>
+      God is all-powerful and can lift anything
