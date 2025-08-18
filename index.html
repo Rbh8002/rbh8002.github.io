@@ -2,8 +2,6 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-
-  <!-- Ensure mobile viewport scales correctly -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
   <!-- Strong no-cache directives -->
@@ -11,30 +9,40 @@
   <meta http-equiv="Pragma"       content="no-cache" />
   <meta http-equiv="Expires"      content="0" />
 
-  <title>Enter the Message</title>
+  <title>Robert Hall's Spiritual Manuscripts</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
 
   <style>
     html, body {
       margin: 0;
       padding: 0;
-      background: #000;
+      background-color: #000;
       color: #fff;
       font-family: sans-serif;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
+      text-align: center;
     }
-    button {
-      margin-top: 1em;
-      padding: 1em 2em;
+    .hero-image {
+      max-width: 100%;
+      height: auto;
+      margin-top: 20px;
+    }
+    .intro-text {
+      margin: 20px;
       font-size: 1.2em;
-      background: #fff;
+    }
+    .download-button {
+      display: inline-block;
+      margin: 30px auto;
+      padding: 12px 24px;
+      background-color: #f5c518;
       color: #000;
-      border: none;
-      cursor: pointer;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 6px;
+      box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    }
+    .download-button:hover {
+      background-color: #ffe066;
     }
   </style>
 
@@ -66,13 +74,11 @@
 
       if (!isBackForward) return;
 
-      // re-inject GTM
       var gtmReload = document.createElement('script');
       gtmReload.async = true;
       gtmReload.src   = 'https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R';
       document.head.appendChild(gtmReload);
 
-      // re-fire GA4 page_view
       if (typeof gtag === 'function') {
         gtag('event', 'page_view', {
           page_location: location.href,
@@ -94,19 +100,12 @@
     </iframe>
   </noscript>
 
-  <h1>Enter the Message</h1>
-  <button id="visitBtn">Visit the Full Site</button>
+  <img src="Copilot_20250818_174359.png" alt="Spiritual Paradox Image" class="hero-image">
 
-  <script>
-    // Track button clicks then redirect
-    document.getElementById('visitBtn').addEventListener('click', function() {
-      window.dataLayer.push({ event: 'visit_full_site_click' });
-      console.log('visit_full_site_click');
-      setTimeout(function() {
-        location.href = 'https://roberthalls-manuscripts.com/';
-      }, 200);
-    });
-  </script>
+  <div class="intro-text">
+    <p>The answer to this paradox is found in the manuscript below.</p>
+  </div>
+
+  <a href="manuscript.pdf" download class="download-button">📥 Download the Manuscript</a>
 </body>
 </html>
-```
