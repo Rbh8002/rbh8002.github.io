@@ -6,8 +6,8 @@
 
   <!-- Strong no-cache directives -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
-  <meta http-equiv="Pragma"       content="no-cache" />
-  <meta http-equiv="Expires"      content="0" />
+  <meta http-equiv="Pragma" content="no-cache" />
+  <meta http-equiv="Expires" content="0" />
 
   <title>Robert Hall's Spiritual Manuscripts</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
@@ -16,21 +16,22 @@
     html, body {
       margin: 0;
       padding: 0;
-      background-color: #000;
-      color: #fff;
       font-family: sans-serif;
+      background-color: #000;
       text-align: center;
     }
-    .hero-image {
-      max-width: 100%;
-      height: auto;
-      margin-top: 20px;
-    }
-    .intro-text {
-      margin: 20px;
+    .paradox-text {
+      background-color: #fff;
+      color: #007BFF;
+      padding: 40px 20px;
       font-size: 1.2em;
+      line-height: 1.6;
+      margin: 40px auto;
+      max-width: 800px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.2);
     }
-    .download-button {
+    .visit-button {
       display: inline-block;
       margin: 30px auto;
       padding: 12px 24px;
@@ -41,7 +42,7 @@
       border-radius: 6px;
       box-shadow: 0 4px 6px rgba(0,0,0,0.3);
     }
-    .download-button:hover {
+    .visit-button:hover {
       background-color: #ffe066;
     }
   </style>
@@ -76,13 +77,13 @@
 
       var gtmReload = document.createElement('script');
       gtmReload.async = true;
-      gtmReload.src   = 'https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R';
+      gtmReload.src = 'https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R';
       document.head.appendChild(gtmReload);
 
       if (typeof gtag === 'function') {
         gtag('event', 'page_view', {
           page_location: location.href,
-          page_path:     location.pathname
+          page_path: location.pathname
         });
       }
       console.log('Analytics re-init on pageshow @ ' + new Date().toISOString());
@@ -100,12 +101,14 @@
     </iframe>
   </noscript>
 
-  <img src="Copilot_20250818_174359.png" alt="Spiritual Paradox Image" class="hero-image">
-
-  <div class="intro-text">
-    <p>The answer to this paradox is found in the manuscript below.</p>
+  <div class="paradox-text">
+    <p>
+      God is all-powerful and can lift anything. He is also all-knowledge so can make something He cannot lift.
+      <br><br>
+      The answer to this ancient paradox is found in our manuscripts and offers the most beautiful truths you may have ever read.
+    </p>
   </div>
 
-  <a href="manuscript.pdf" download class="download-button">📥 Download the Manuscript</a>
+  <a href="https://roberthalls-manuscripts.com" class="visit-button">🌐 Visit the Full Site</a>
 </body>
 </html>
