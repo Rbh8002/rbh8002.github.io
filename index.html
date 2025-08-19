@@ -12,7 +12,7 @@
   <title>Either God Is or God Isn't</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
 
-  <!-- GA4 with versioned query string -->
+  <!-- GA4 with fallback check -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF&v=20250819"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -21,6 +21,14 @@
     gtag('config', 'G-ZC93LJZLLF', { 'debug_mode': true });
 
     console.log("✅ GA4 initialized with debug mode");
+
+    window.addEventListener('load', () => {
+      if (typeof gtag !== 'function') {
+        console.warn("⚠️ GA4 gtag function not available");
+        const badge = document.querySelector('.debug-badge');
+        if (badge) badge.textContent = '⚠️ GA4 Tag Missing';
+      }
+    });
   </script>
 
   <style>
@@ -78,6 +86,8 @@
       transition: background-color 0.3s ease, transform 0.2s ease;
       text-align: center;
       width: fit-content;
+      visibility: visible;
+      opacity: 1;
     }
 
     .visit-button:hover {
