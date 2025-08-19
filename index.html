@@ -9,7 +9,7 @@
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
-  <title>Robert Hall's Spiritual Manuscripts</title>
+  <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
 
   <!-- Google Analytics 4 with Debug Mode -->
@@ -35,20 +35,40 @@
       padding: 0;
       background-color: #000;
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      text-align: center;
+      color: #fff;
     }
 
-    .hero-section {
+    .container {
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      align-items: center;
       padding: 60px 20px;
+      flex-wrap: wrap;
       background: linear-gradient(to bottom right, #1e3c72, #2a5298);
     }
 
-    .hero-section img {
+    .text-block {
       max-width: 600px;
+      padding: 20px;
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+
+    .text-block h1 {
+      font-size: 2em;
+      margin-bottom: 20px;
+    }
+
+    .image-block {
+      max-width: 400px;
+      padding: 20px;
+    }
+
+    .image-block img {
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
-      margin-bottom: 30px;
     }
 
     @keyframes pulse {
@@ -59,6 +79,7 @@
 
     .visit-main-button {
       display: inline-block;
+      margin: 40px auto;
       padding: 15px 30px;
       background-color: #00c9a7;
       color: white;
@@ -91,14 +112,24 @@
 </head>
 
 <body>
-  <section class="hero-section">
-    <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Transcendence Light">
+  <div class="container">
+    <div class="text-block">
+      <h1>Either God Is or God Isn't</h1>
+      <p>
+        Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell does not exist, and death is our gateway to Life Eternal. Christ is much more than a name or title; it's our state of Being.
+      </p>
+      <p>— Bob</p>
+    </div>
 
-    <a href="https://roberthalls-manuscripts.com" class="visit-main-button"
-       onclick="gtag('event', 'click', { event_category: 'engagement', event_label: 'Visit Full Site' });">
-      🌐 Visit the Full Site
-    </a>
-  </section>
+    <div class="image-block">
+      <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Our Awakening Transcendence Is Occurring...Now - Robert Hall">
+    </div>
+  </div>
+
+  <a href="https://roberthalls-manuscripts.com" class="visit-main-button"
+     onclick="gtag('event', 'click', { event_category: 'engagement', event_label: 'Visit Full Site' });">
+    🌐 Visit the Full Site
+  </a>
 
   <div class="debug-badge">GA4 Debug Active</div>
 </body>
