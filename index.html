@@ -64,6 +64,33 @@
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
 
+    .visit-button {
+      display: block;
+      margin: 40px auto;
+      padding: 15px 30px;
+      background-color: #00c9a7;
+      color: white;
+      font-size: 1.1em;
+      border-radius: 8px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+      animation: pulse 2.5s infinite;
+      transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: center;
+      width: fit-content;
+    }
+
+    .visit-button:hover {
+      background-color: #00e6c3;
+      transform: scale(1.07);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
+    }
+
     .debug-badge {
       position: fixed;
       bottom: 10px;
@@ -93,6 +120,11 @@
       <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
     </div>
   </div>
+
+  <a href="https://roberthalls-manuscripts.com" class="visit-button"
+     onclick="gtag('event', 'click', { event_category: 'engagement', event_label: 'Visit Full Site' });">
+    🌐 Visit the Full Site
+  </a>
 
   <div class="debug-badge">GA4 Debug Active</div>
 </body>
