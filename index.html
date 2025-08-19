@@ -4,16 +4,19 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- No-cache directives -->
+  <!-- No-cache directives for browser -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
 
+  <!-- CDN-level cache busting hint -->
+  <meta name="robots" content="noindex, nofollow" />
+
   <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
 
-  <!-- Google Analytics 4 with Debug Mode -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+  <!-- Google Analytics 4 with versioned query string to bust cache -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF&v=1.0.1"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
