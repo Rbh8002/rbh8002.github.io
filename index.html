@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- Strong no-cache directives -->
+  <!-- No-cache directives -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
@@ -12,12 +12,22 @@
   <title>Robert Hall's Spiritual Manuscripts</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
 
+  <!-- Google Analytics 4 -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-ZC93LJZLLF');
+  </script>
+
   <style>
     html, body {
       margin: 0;
       padding: 0;
       background-color: #000;
       text-align: center;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     }
 
     .hero-section {
@@ -62,7 +72,9 @@
 <body>
   <section class="hero-section">
     <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Transcendence Light">
-    <a href="https://roberthalls-manuscripts.com" class="visit-main-button">🌐 Visit the Full Site</a>
+    <a href="https://roberthalls-manuscripts.com" class="visit-main-button" onclick="gtag('event', 'click', { event_category: 'engagement', event_label: 'Visit Full Site' });">
+      🌐 Visit the Full Site
+    </a>
   </section>
 </body>
 </html>
