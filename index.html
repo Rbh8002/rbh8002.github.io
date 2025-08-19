@@ -4,34 +4,27 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-  <!-- No-cache directives -->
+  <!-- Cache busting -->
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <meta name="robots" content="noindex, nofollow" />
 
-  <title>Robert Hall's Spiritual Manuscripts for Transformation</title>
+  <title>Either God Is or God Isn't</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
 
-  <!-- Google Analytics 4 with versioned query string to bust cache -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF&v=1.0.1"></script>
+  <!-- GA4 with versioned query string -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF&v=20250819"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-ZC93LJZLLF', { 'debug_mode': true });
 
-    console.log("✅ GA4 debug mode active");
-
-    window.addEventListener('load', () => {
-      if (typeof gtag !== 'function') {
-        console.warn("⚠️ GA4 gtag function not available");
-      }
-    });
+    console.log("✅ GA4 initialized with debug mode");
   </script>
 
   <style>
-    html, body {
+    body {
       margin: 0;
       padding: 0;
       background-color: #000;
@@ -39,7 +32,7 @@
       color: #fff;
     }
 
-    .main-section {
+    .container {
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -48,36 +41,30 @@
       background: linear-gradient(to bottom right, #1e3c72, #2a5298);
     }
 
-    .text-content {
+    .text {
       max-width: 600px;
       padding: 20px;
       font-size: 1.1em;
       line-height: 1.6;
     }
 
-    .text-content h1 {
+    .text h1 {
       font-size: 2em;
       margin-bottom: 20px;
     }
 
-    .image-content {
+    .image {
       max-width: 400px;
       padding: 20px;
     }
 
-    .image-content img {
+    .image img {
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
 
-    @keyframes pulse {
-      0% { transform: scale(1); }
-      50% { transform: scale(1.05); }
-      100% { transform: scale(1); }
-    }
-
-    .visit-main-button {
+    .visit-button {
       display: block;
       margin: 40px auto;
       padding: 15px 30px;
@@ -93,9 +80,15 @@
       width: fit-content;
     }
 
-    .visit-main-button:hover {
+    .visit-button:hover {
       background-color: #00e6c3;
       transform: scale(1.07);
+    }
+
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.05); }
+      100% { transform: scale(1); }
     }
 
     .debug-badge {
@@ -114,8 +107,8 @@
 </head>
 
 <body>
-  <div class="main-section">
-    <div class="text-content">
+  <div class="container">
+    <div class="text">
       <h1>Either God Is or God Isn't</h1>
       <p>
         Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell does not exist, and death is our gateway to Life Eternal. Christ is much more than a name or title; it's our state of Being.
@@ -123,12 +116,12 @@
       <p>— Bob</p>
     </div>
 
-    <div class="image-content">
-      <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Our Awakening Transcendence Is Occurring...Now - Robert Hall">
+    <div class="image">
+      <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
     </div>
   </div>
 
-  <a href="https://roberthalls-manuscripts.com" class="visit-main-button"
+  <a href="https://roberthalls-manuscripts.com" class="visit-button"
      onclick="gtag('event', 'click', { event_category: 'engagement', event_label: 'Visit Full Site' });">
     🌐 Visit the Full Site
   </a>
