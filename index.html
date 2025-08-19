@@ -38,34 +38,47 @@
       color: #fff;
     }
 
-    .container {
+    header {
       display: flex;
-      flex-direction: row;
+      justify-content: flex-end;
+      padding: 20px;
+      background-color: #111;
+    }
+
+    header a {
+      color: #00c9a7;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1em;
+    }
+
+    .main-section {
+      display: flex;
+      flex-wrap: wrap;
       justify-content: center;
       align-items: center;
       padding: 60px 20px;
-      flex-wrap: wrap;
       background: linear-gradient(to bottom right, #1e3c72, #2a5298);
     }
 
-    .text-block {
+    .text-content {
       max-width: 600px;
       padding: 20px;
       font-size: 1.1em;
       line-height: 1.6;
     }
 
-    .text-block h1 {
+    .text-content h1 {
       font-size: 2em;
       margin-bottom: 20px;
     }
 
-    .image-block {
+    .image-content {
       max-width: 400px;
       padding: 20px;
     }
 
-    .image-block img {
+    .image-content img {
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
@@ -78,7 +91,7 @@
     }
 
     .visit-main-button {
-      display: inline-block;
+      display: block;
       margin: 40px auto;
       padding: 15px 30px;
       background-color: #00c9a7;
@@ -89,6 +102,8 @@
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       animation: pulse 2.5s infinite;
       transition: background-color 0.3s ease, transform 0.2s ease;
+      text-align: center;
+      width: fit-content;
     }
 
     .visit-main-button:hover {
@@ -112,8 +127,12 @@
 </head>
 
 <body>
-  <div class="container">
-    <div class="text-block">
+  <header>
+    <a href="mailto:contact@roberthalls-manuscripts.com">Contact</a>
+  </header>
+
+  <div class="main-section">
+    <div class="text-content">
       <h1>Either God Is or God Isn't</h1>
       <p>
         Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell does not exist, and death is our gateway to Life Eternal. Christ is much more than a name or title; it's our state of Being.
@@ -121,7 +140,7 @@
       <p>— Bob</p>
     </div>
 
-    <div class="image-block">
+    <div class="image-content">
       <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Our Awakening Transcendence Is Occurring...Now - Robert Hall">
     </div>
   </div>
