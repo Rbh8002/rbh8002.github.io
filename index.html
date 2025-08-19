@@ -6,14 +6,20 @@
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
+  <meta http-equiv="Content-Security-Policy" content="upgrade-insecure-requests" />
+  <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
   <title>Either God Is or God Isn't</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
 
-  <!-- GA4 Clean Tag -->
+  <!-- GA4 Clean Tag with Consent Mode -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF&v=20250819"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
+    gtag('consent', 'default', {
+      ad_storage: 'denied',
+      analytics_storage: 'granted'
+    });
     gtag('js', new Date());
     gtag('config', 'G-ZC93LJZLLF', { 'debug_mode': true });
 
@@ -26,7 +32,7 @@
       });
       setTimeout(() => {
         window.location.href = 'https://roberthalls-manuscripts.com';
-      }, 150); // slight delay to ensure GA4 logs event
+      }, 150);
     }
 
     window.addEventListener('load', () => {
@@ -34,6 +40,13 @@
         console.warn("⚠️ GA4 gtag function not available");
         const badge = document.querySelector('.debug-badge');
         if (badge) badge.textContent = '⚠️ GA4 Tag Missing';
+      }
+
+      // Optional: Register service worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(err => {
+          console.warn("Service worker registration failed:", err);
+        });
       }
     });
   </script>
