@@ -151,6 +151,8 @@
         console.warn("⚠️ GTM dataLayer not available");
         const badge = document.querySelector('.debug-badge');
         if (badge) badge.textContent = '⚠️ GTM Container Missing';
+      } else {
+        dataLayer.push({ event: 'page_loaded' });
       }
 
       if ('serviceWorker' in navigator) {
