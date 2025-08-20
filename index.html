@@ -33,8 +33,6 @@
     gtag('js', new Date());
     gtag('config', 'G-ZC93LJZLLF', { 'debug_mode': true });
 
-    console.log("✅ GA4 initialized with debug mode");
-
     function visitSite() {
       gtag('event', 'click', {
         event_category: 'engagement',
@@ -46,12 +44,6 @@
     }
 
     window.addEventListener('load', () => {
-      if (typeof gtag !== 'function') {
-        console.warn("⚠️ GA4 gtag function not available");
-        const badge = document.querySelector('.debug-badge');
-        if (badge) badge.textContent = '⚠️ GA4 Tag Missing';
-      }
-
       if ('serviceWorker' in navigator) {
         navigator.serviceWorker.register('/sw.js').catch(err => {
           console.warn("Service worker registration failed:", err);
@@ -157,4 +149,4 @@
     <div class="text">
       <h1>Either God Is or God Isn't</h1>
       <p>
-        Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not concerned about our unbelief. This does not change Eternal Truth. God is all-power
+        Welcome. Your being here is no accident. Let's consider God
