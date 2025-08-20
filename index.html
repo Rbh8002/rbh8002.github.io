@@ -11,45 +11,15 @@
   <title>Either God Is or God Isn't</title>
   <link rel="canonical" href="https://roberthalls-manuscripts.com/" />
 
-  <!-- GA4 Clean Tag with Consent Mode -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF&v=20250819"></script>
+  <!-- Google Tag Manager -->
   <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('consent', 'default', {
-      ad_storage: 'denied',
-      analytics_storage: 'granted'
-    });
-    gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF', { 'debug_mode': true });
-
-    console.log("✅ GA4 initialized with debug mode");
-
-    function visitSite() {
-      gtag('event', 'click', {
-        event_category: 'engagement',
-        event_label: 'Visit Full Site'
-      });
-      setTimeout(() => {
-        window.location.href = 'https://roberthalls-manuscripts.com';
-      }, 150);
-    }
-
-    window.addEventListener('load', () => {
-      if (typeof gtag !== 'function') {
-        console.warn("⚠️ GA4 gtag function not available");
-        const badge = document.querySelector('.debug-badge');
-        if (badge) badge.textContent = '⚠️ GA4 Tag Missing';
-      }
-
-      // Optional: Register service worker
-      if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('/sw.js').catch(err => {
-          console.warn("Service worker registration failed:", err);
-        });
-      }
-    });
+    (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-58NRHM6R');
   </script>
+  <!-- End Google Tag Manager -->
 
   <style>
     body {
@@ -137,6 +107,11 @@
 </head>
 
 <body>
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
   <div class="container">
     <div class="text">
       <h1>Either God Is or God Isn't</h1>
@@ -155,6 +130,36 @@
     <button class="visit-button" onclick="visitSite()">🌐 Visit the Full Site</button>
   </div>
 
-  <div class="debug-badge">GA4 Debug Active</div>
+  <div class="debug-badge">GTM Container Active</div>
+
+  <script>
+    function visitSite() {
+      if (window.dataLayer) {
+        dataLayer.push({
+          event: 'visit_full_site_click',
+          event_category: 'engagement',
+          event_label: 'Visit Full Site'
+        });
+      }
+      setTimeout(() => {
+        window.location.href = 'https://roberthalls-manuscripts.com';
+      }, 150);
+    }
+
+    window.addEventListener('load', () => {
+      if (!window.dataLayer) {
+        console.warn("⚠️ GTM dataLayer not available");
+        const badge = document.querySelector('.debug-badge');
+        if (badge) badge.textContent = '⚠️ GTM Container Missing';
+      }
+
+      // Optional: Register service worker
+      if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/sw.js').catch(err => {
+          console.warn("Service worker registration failed:", err);
+        });
+      }
+    });
+  </script>
 </body>
 </html>
