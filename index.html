@@ -33,7 +33,7 @@
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
-      align-items: center;
+      align-items: flex-start;
       padding: 60px 20px;
       background: linear-gradient(to bottom right, #1e3c72, #2a5298);
     }
@@ -53,6 +53,7 @@
     .image {
       max-width: 400px;
       padding: 20px;
+      text-align: center;
     }
 
     .image img {
@@ -61,12 +62,8 @@
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
 
-    .visit-form {
-      text-align: center;
-      margin: 40px auto;
-    }
-
     .visit-button {
+      margin-top: 20px;
       padding: 15px 30px;
       background-color: #00c9a7;
       color: white;
@@ -117,11 +114,8 @@
 
     <div class="image">
       <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
+      <button class="visit-button" onclick="visitSite()">🌐 Visit the Full Site</button>
     </div>
-  </div>
-
-  <div class="visit-form">
-    <button class="visit-button" onclick="visitSite()">🌐 Visit the Full Site</button>
   </div>
 
   <div class="debug-badge">GTM Container Active</div>
