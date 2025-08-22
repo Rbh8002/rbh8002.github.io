@@ -114,27 +114,13 @@
 
     <div class="image">
       <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
-      <button class="visit-button" onclick="visitSite()">🌐 Visit the Full Site</button>
+      <button id="visit-full-site" class="visit-button">🌐 Visit the Full Site</button>
     </div>
   </div>
 
   <div class="debug-badge">GTM Container Active</div>
 
   <script>
-    function visitSite() {
-      if (window.dataLayer) {
-        dataLayer.push({
-          event: 'visit_full_site_click',
-          event_category: 'engagement',
-          event_label: 'Visit Full Site',
-          link_url: 'https://payhip.com/RobertHallsManuscripts'
-        });
-      }
-      setTimeout(() => {
-        window.location.href = 'https://payhip.com/RobertHallsManuscripts';
-      }, 150);
-    }
-
     window.addEventListener('load', () => {
       if (!window.dataLayer) {
         console.warn("⚠️ GTM dataLayer not available");
