@@ -11,6 +11,10 @@
   <title>Either God Is or God Isn't</title>
 
   <!-- Google Tag Manager (GTM-58NRHM6R only) -->
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    window.dataLayer.push({ event: 'gtm_init' });
+  </script>
   <script async src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R"></script>
 
   <style>
@@ -111,33 +115,40 @@
     </div>
   </div>
 
-  <div class="debug-badge">GTM Container Active</div>
+  <div class="debug-badge">Initializing GTM...</div>
 
   <script>
-    document.getElementById('visit-full-site').addEventListener('click', function() {
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('visit-full-site');
+      const badge = document.querySelector('.debug-badge');
       const redirectURL = 'https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click';
 
-      if (window.dataLayer) {
-        dataLayer.push({
-          event: 'visit_full_site_click',
-          event_category: 'engagement',
-          event_label: 'Visit Full Site',
-          link_url: redirectURL
-        });
+      // Update badge based on GTM presence
+      if (window.dataLayer && Array.isArray(window.dataLayer)) {
+        badge.textContent = '✅ GTM Container Active';
+        window.dataLayer.push({ event: 'page_loaded' });
+      } else {
+        badge.textContent = '⚠️ GTM Container Missing';
+        console.warn('GTM dataLayer not available');
       }
 
-      setTimeout(function() {
-        window.location.href = redirectURL;
-      }, 150);
-    });
+      // Button click handler
+      if (button) {
+        button.addEventListener('click', () => {
+          if (window.dataLayer) {
+            window.dataLayer.push({
+              event: 'visit_full_site_click',
+              event_category: 'engagement',
+              event_label: 'Visit Full Site',
+              link_url: redirectURL
+            });
+          }
 
-    window.addEventListener('load', () => {
-      if (!window.dataLayer) {
-        console.warn("⚠️ GTM dataLayer not available");
-        const badge = document.querySelector('.debug-badge');
-        if (badge) badge.textContent = '⚠️ GTM Container Missing';
-      } else {
-        dataLayer.push({ event: 'page_loaded' });
+          // Redirect after short delay
+          setTimeout(() => {
+            window.location.href = redirectURL;
+          }, 200);
+        });
       }
     });
   </script>
