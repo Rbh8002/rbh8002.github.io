@@ -115,16 +115,19 @@
 
   <script>
     document.getElementById('visit-full-site').addEventListener('click', function() {
+      const redirectURL = 'https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click';
+
       if (window.dataLayer) {
         dataLayer.push({
           event: 'visit_full_site_click',
           event_category: 'engagement',
           event_label: 'Visit Full Site',
-          link_url: 'https://payhip.com/RobertHallsManuscripts'
+          link_url: redirectURL
         });
       }
+
       setTimeout(function() {
-        window.location.href = 'https://payhip.com/RobertHallsManuscripts';
+        window.location.href = redirectURL;
       }, 150);
     });
 
