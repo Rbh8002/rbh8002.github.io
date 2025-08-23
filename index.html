@@ -111,39 +111,46 @@
 
     <div class="image">
       <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
-      <button class="visit-button" onclick="visitFullSite()">🌐 Visit the Full Site</button>
+      <button id="visit-full-site" class="visit-button">🌐 Visit the Full Site</button>
     </div>
   </div>
 
   <div class="debug-badge">Initializing GTM...</div>
 
   <script>
-    function visitFullSite() {
+    document.addEventListener('DOMContentLoaded', () => {
+      const button = document.getElementById('visit-full-site');
+      const badge = document.querySelector('.debug-badge');
       const redirectURL = 'https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click';
 
-      // Push GA4 event if dataLayer is available
-      if (window.dataLayer && Array.isArray(window.dataLayer)) {
-        window.dataLayer.push({
-          event: 'visit_full_site_click',
-          event_category: 'engagement',
-          event_label: 'Visit Full Site',
-          link_url: redirectURL
-        });
-      }
-
-      // Redirect immediately
-      window.location.href = redirectURL;
-    }
-
-    // On page load, update badge and fire page_loaded event
-    window.addEventListener('load', () => {
-      const badge = document.querySelector('.debug-badge');
+      // Update badge and fire page_loaded event
       if (window.dataLayer && Array.isArray(window.dataLayer)) {
         badge.textContent = '✅ GTM Container Active';
         window.dataLayer.push({ event: 'page_loaded' });
       } else {
         badge.textContent = '⚠️ GTM Container Missing';
         console.warn('GTM dataLayer not available');
+      }
+
+      // Attach click handler
+      if (button) {
+        button.addEventListener('click', () => {
+          try {
+            if (window.dataLayer && Array.isArray(window.dataLayer)) {
+              window.dataLayer.push({
+                event: 'visit_full_site_click',
+                event_category: 'engagement',
+                event_label: 'Visit Full Site',
+                link_url: redirectURL
+              });
+            }
+          } catch (e) {
+            console.warn('Event push failed:', e);
+          }
+
+          // Redirect immediately
+          window.location.href = redirectURL;
+        });
       }
     });
   </script>
