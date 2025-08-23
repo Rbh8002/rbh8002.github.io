@@ -60,14 +60,14 @@
     }
 
     .visit-button {
+      display: inline-block;
       margin-top: 20px;
       padding: 15px 30px;
       background-color: #00c9a7;
       color: white;
       font-size: 1.1em;
       border-radius: 8px;
-      border: none;
-      cursor: pointer;
+      text-decoration: none;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       animation: pulse 2.5s infinite;
       transition: background-color 0.3s ease, transform 0.2s ease;
@@ -111,7 +111,7 @@
 
     <div class="image">
       <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
-      <button id="visit-full-site" class="visit-button">🌐 Visit the Full Site</button>
+      <a href="https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click" class="visit-button" id="visit-full-site">🌐 Visit the Full Site</a>
     </div>
   </div>
 
@@ -119,37 +119,24 @@
 
   <script>
     document.addEventListener('DOMContentLoaded', function () {
-      const button = document.getElementById('visit-full-site');
       const badge = document.querySelector('.debug-badge');
-      const redirectURL = 'https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click';
+      const link = document.getElementById('visit-full-site');
 
-      // Update badge and fire page_loaded event
       if (window.dataLayer && Array.isArray(window.dataLayer)) {
         badge.textContent = '✅ GTM Container Active';
         window.dataLayer.push({ event: 'page_loaded' });
+
+        link.addEventListener('click', function () {
+          window.dataLayer.push({
+            event: 'visit_full_site_click',
+            event_category: 'engagement',
+            event_label: 'Visit Full Site',
+            link_url: link.href
+          });
+        });
       } else {
         badge.textContent = '⚠️ GTM Container Missing';
         console.warn('GTM dataLayer not available');
-      }
-
-      // Attach click handler
-      if (button) {
-        button.addEventListener('click', function () {
-          // Push GA4 event if possible
-          if (window.dataLayer && Array.isArray(window.dataLayer)) {
-            window.dataLayer.push({
-              event: 'visit_full_site_click',
-              event_category: 'engagement',
-              event_label: 'Visit Full Site',
-              link_url: redirectURL
-            });
-          }
-
-          // Redirect immediately
-          window.location.assign(redirectURL);
-        });
-      } else {
-        console.error('Visit button not found');
       }
     });
   </script>
