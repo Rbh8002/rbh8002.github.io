@@ -118,7 +118,7 @@
   <div class="debug-badge">Initializing GTM...</div>
 
   <script>
-    document.addEventListener('DOMContentLoaded', () => {
+    document.addEventListener('DOMContentLoaded', function () {
       const button = document.getElementById('visit-full-site');
       const badge = document.querySelector('.debug-badge');
       const redirectURL = 'https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click';
@@ -134,23 +134,22 @@
 
       // Attach click handler
       if (button) {
-        button.addEventListener('click', () => {
-          try {
-            if (window.dataLayer && Array.isArray(window.dataLayer)) {
-              window.dataLayer.push({
-                event: 'visit_full_site_click',
-                event_category: 'engagement',
-                event_label: 'Visit Full Site',
-                link_url: redirectURL
-              });
-            }
-          } catch (e) {
-            console.warn('Event push failed:', e);
+        button.addEventListener('click', function () {
+          // Push GA4 event if possible
+          if (window.dataLayer && Array.isArray(window.dataLayer)) {
+            window.dataLayer.push({
+              event: 'visit_full_site_click',
+              event_category: 'engagement',
+              event_label: 'Visit Full Site',
+              link_url: redirectURL
+            });
           }
 
           // Redirect immediately
-          window.location.href = redirectURL;
+          window.location.assign(redirectURL);
         });
+      } else {
+        console.error('Visit button not found');
       }
     });
   </script>
