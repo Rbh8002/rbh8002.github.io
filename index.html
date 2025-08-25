@@ -6,16 +6,16 @@
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-abc123xyz' https://www.googletagmanager.com https://www.google-analytics.com; object-src 'none'; base-uri 'self';" />
   <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-abc123xyz' https://www.googletagmanager.com https://www.google-analytics.com; object-src 'none'; base-uri 'self';" />
   <title>Either God Is or God Isn't</title>
 
-  <!-- Google Tag Manager -->
+  <!-- Google Tag Manager Initialization -->
   <script nonce="abc123xyz">
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'gtm_init' });
   </script>
-  <script nonce="abc123xyz" async src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R"></script>
+  <script nonce="abc123xyz" src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R"></script>
 
   <style>
     body {
@@ -119,11 +119,9 @@
       const link = document.getElementById('visit-full-site');
       const isDebug = window.location.search.includes('gtm_debug');
 
-      if (isDebug) {
-        badge.style.display = 'block';
-      }
+      if (isDebug) badge.style.display = 'block';
 
-      if (window.dataLayer && Array.isArray(window.dataLayer)) {
+      if (window.dataLayer && typeof window.dataLayer.push === 'function') {
         if (isDebug) badge.textContent = '✅ GTM Container Active';
         window.dataLayer.push({ event: 'page_loaded' });
 
