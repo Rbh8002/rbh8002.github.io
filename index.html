@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
@@ -8,13 +9,27 @@
   <meta http-equiv="Expires" content="0" />
   <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
   <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-abc123xyz' https://www.googletagmanager.com https://www.google-analytics.com; object-src 'none'; base-uri 'self';" />
+  
   <title>Either God Is or God Isn't</title>
 
-  <!-- Google Tag Manager -->
+  <!-- Google Tag Manager Initialization -->
   <script nonce="abc123xyz">
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'gtm_init' });
   </script>
+
+  <!-- Consent Defaults (runs before GTM.js) -->
+  <script nonce="abc123xyz">
+    gtag('consent', 'default', {
+      'ad_storage': 'granted',
+      'analytics_storage': 'granted',
+      'functionality_storage': 'granted',
+      'personalization_storage': 'granted',
+      'security_storage': 'granted'
+    });
+  </script>
+
+  <!-- Google Tag Manager -->
   <script nonce="abc123xyz" src="https://www.googletagmanager.com/gtm.js?id=GTM-58NRHM6R"></script>
 
   <style>
@@ -91,25 +106,25 @@
       display: none;
     }
   </style>
+
 </head>
 
 <body>
+  
   <div class="container">
     <div class="text">
       <h1>Either God Is or God Isn't</h1>
       <p>
         Welcome. Your being here is no accident. Let's consider God Is. The Creator of Heaven’s worlds, moons, stars, galaxies, and universes is certainly not concerned about our non-belief. This does not change Eternal Truth. God is all-powerful and can lift anything. He is also all-knowing so can make something He cannot lift. The answer to this ancient paradox is found here and offers some of the most beautiful truths you may ever read. Our manuscripts logically prove that Hell does not exist, and it is absolutely impossible to sin against God. Christ is much more than a mere title or name, this is our state of Being and death is our gateway to Eternal Life. God’s Love is far beyond our current level of understanding. Bob
- 
-
- 
-
       </p>
     </div>
 
     <div class="image">
       <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
-      
-      <a href="https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click" class="visit-button" id="visit-full-site">🌐 Visit the Full Site</a>
+      <a href="https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click"
+         class="visit-button" id="visit-full-site">
+        🌐 Visit the Full Site
+      </a>
     </div>
   </div>
 
@@ -121,17 +136,14 @@
       const badge = document.getElementById('gtm-badge');
       const isDebug = window.location.search.includes('gtm_debug');
 
-      // Show badge only in debug mode
-      if (isDebug && badge) {
+      if (isDebug) {
         badge.style.display = 'block';
         badge.textContent = '✅ GTM Container Active';
       }
 
-      // Ensure GTM is initialized
       window.dataLayer = window.dataLayer || [];
       window.dataLayer.push({ event: 'page_loaded' });
 
-      // Track button click with delay
       if (link) {
         link.addEventListener('click', function () {
           setTimeout(() => {
@@ -141,7 +153,7 @@
               event_label: 'Visit Full Site',
               link_url: link.href
             });
-          }, 300); // Delay ensures GTM is ready
+          }, 300);
         });
       }
     });
@@ -151,6 +163,6 @@
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
   </noscript>
+
 </body>
 </html>
-
