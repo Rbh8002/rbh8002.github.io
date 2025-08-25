@@ -6,18 +6,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Your Spiritual Landing Page</title>
 
-  <!-- Global site tag (gtag.js) - Google Analytics 4 -->
-  <script nonce="abc123xyz" async
-          src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF">
-  </script>
-  <script nonce="abc123xyz">
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){ dataLayer.push(arguments); }
-    gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF', { send_page_view: true });
-  </script>
-  <!-- End GA4 -->
-
   <!-- Google Tag Manager -->
   <script nonce="abc123xyz">
     (function(w,d,s,l,i){
@@ -80,8 +68,8 @@
   <script nonce="abc123xyz">
     var btn = document.getElementById('visit-full-site');
     btn.addEventListener('click', function() {
-      dataLayer.push({ event: 'visit_full_site_click' });
-      gtag('event', 'visit_full_site_click', {
+      dataLayer.push({
+        event: 'visit_full_site_click',
         event_category: 'engagement',
         event_label: 'Landing → Full Site'
       });
@@ -91,3 +79,4 @@
 
 </body>
 </html>
+```
