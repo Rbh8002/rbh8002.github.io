@@ -10,7 +10,7 @@
   <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
   <title>Either God Is or God Isn't</title>
 
-  <!-- Google Tag Manager (GTM-58NRHM6R only) -->
+  <!-- Google Tag Manager -->
   <script nonce="abc123xyz">
     window.dataLayer = window.dataLayer || [];
     window.dataLayer.push({ event: 'gtm_init' });
@@ -21,7 +21,7 @@
     body {
       margin: 0;
       padding: 0;
-      background-color: #000;
+      background: linear-gradient(to bottom right, #1e3c72, #2a5298);
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
     }
@@ -32,10 +32,9 @@
       justify-content: center;
       align-items: flex-start;
       padding: 60px 20px;
-      background: linear-gradient(to bottom right, #1e3c72, #2a5298);
     }
 
-    .text {
+    .text, .image {
       max-width: 600px;
       padding: 20px;
       font-size: 1.1em;
@@ -45,12 +44,6 @@
     .text h1 {
       font-size: 2em;
       margin-bottom: 20px;
-    }
-
-    .image {
-      max-width: 400px;
-      padding: 20px;
-      text-align: center;
     }
 
     .image img {
@@ -95,6 +88,7 @@
       font-size: 0.9em;
       box-shadow: 0 2px 6px rgba(0,0,0,0.3);
       z-index: 999;
+      display: none;
     }
   </style>
 </head>
@@ -104,26 +98,33 @@
     <div class="text">
       <h1>Either God Is or God Isn't</h1>
       <p>
-        Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is certainly not upset by our unbelief. This does not change Eternal Truth. God is all-powerful and can lift anything. Yet, He is also all-knowledge, so can make something He cannot lift. The answer to this ancient paradox is found in my writings and offers some of the most beautiful Truths you may ever read. These manuscripts logically prove life outside of Heaven is impossible, Hell does not exist, and death is our gateway to Life Eternal. Christ is much more than a name or title; it's our state of Being.
+        Welcome. Your being here is no accident. Let's consider God Is. The Creator of worlds, moons, stars, galaxies and universes is something that can only be inherited. This does not change Eternal Truth. God is all-powerful and can lift anything. He is also all-knowledge, so man can make something He cannot lift? The most ancient paradox is our paradox in understanding. One of the most beautiful Truths you may ever read. These manuscripts logically prove the absolute of Heaven is impossible. Hell does not exist, and death is our gateway to Life Eternal. Christ is much more than a name or title; it is our state of Being.
       </p>
-      <p> Bob</p>
     </div>
 
     <div class="image">
       <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
+      <p>
+        My manuscripts allow the concept of transcendence to be touched. They are written across three decades during experiences that transcend time. Episodes of knowing the soul and its connection to the source of all dissolve, are written with the strength and passion of a soul who could not be confined, just as you cannot be confined.
+      </p>
       <a href="https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click" class="visit-button" id="visit-full-site">🌐 Visit the Full Site</a>
     </div>
   </div>
 
-  <div class="debug-badge">Initializing GTM...</div>
+  <div class="debug-badge" id="debug-badge">Initializing GTM...</div>
 
   <script nonce="abc123xyz">
     document.addEventListener('DOMContentLoaded', function () {
-      const badge = document.querySelector('.debug-badge');
+      const badge = document.getElementById('debug-badge');
       const link = document.getElementById('visit-full-site');
+      const isDebug = window.location.search.includes('gtm_debug');
+
+      if (isDebug) {
+        badge.style.display = 'block';
+      }
 
       if (window.dataLayer && Array.isArray(window.dataLayer)) {
-        badge.textContent = '✅ GTM Container Active';
+        if (isDebug) badge.textContent = '✅ GTM Container Active';
         window.dataLayer.push({ event: 'page_loaded' });
 
         link.addEventListener('click', function () {
@@ -135,10 +136,15 @@
           });
         });
       } else {
-        badge.textContent = '⚠️ GTM Container Missing';
+        if (isDebug) badge.textContent = '⚠️ GTM Container Missing';
         console.warn('GTM dataLayer not available');
       }
     });
   </script>
+
+  <noscript>
+    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
+            height="0" width="0" style="display:none;visibility:hidden"></iframe>
+  </noscript>
 </body>
 </html>
