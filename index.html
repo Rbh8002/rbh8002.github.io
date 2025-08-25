@@ -44,4 +44,51 @@
       margin: 0 auto;
     }
     #visit-full-site {
-      margin-top
+      margin-top: 1.5rem;
+      padding: 0.75rem 1.5rem;
+      font-size: 1rem;
+      background: #0066cc;
+      color: #fff;
+      border: none;
+      cursor: pointer;
+    }
+    #visit-full-site:hover {
+      background: #005bb5;
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Google Tag Manager (noscript) -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
+      height="0" width="0" style="display:none;visibility:hidden">
+    </iframe>
+  </noscript>
+  <!-- End Google Tag Manager (noscript) -->
+
+  <div class="landing">
+    <h1>Welcome to Your Spiritual Sanctuary</h1>
+    <p>
+      Dive into a space of remembrance, forgiveness, and inner peace.
+      Let every word uplift your heart and guide you back to the truth within.
+    </p>
+    <button id="visit-full-site">Visit Full Site</button>
+  </div>
+
+  <script nonce="abc123xyz">
+    var btn = document.getElementById('visit-full-site');
+    btn.addEventListener('click', function() {
+      dataLayer.push({ event: 'visit_full_site_click' });
+      gtag('event', 'visit_full_site_click', {
+        event_category: 'engagement',
+        event_label: 'Landing → Full Site'
+      });
+      window.location.href = 'https://your-full-site-domain.com';
+    });
+  </script>
+
+</body>
+</html>
+
