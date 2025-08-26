@@ -172,10 +172,23 @@
   <noscript>
     <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
             height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript>
+  </noscript> <!-- Load GA4 directly -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
+<script nonce="abc123xyz">
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  // Replace with your actual GA4 Measurement ID
+  gtag('config', 'G-ZC93LJZLLF', {
+    debug_mode: true
+  });
+</script>
+
 
 </body>
 </html>
+
 
 
 
