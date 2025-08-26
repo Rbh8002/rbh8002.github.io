@@ -106,6 +106,16 @@
       display: none;
     }
   </style>
+<script nonce="abc123xyz">
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({
+    event: 'bob_debug_event',
+    debug_mode: true,
+    event_category: 'manual_trigger',
+    event_label: 'Bob’s GA4 sanity check',
+    value: 1
+  });
+</script>
 
 </head>
 
@@ -166,3 +176,6 @@
 
 </body>
 </html>
+
+
+
