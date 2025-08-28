@@ -2,24 +2,40 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="Cache-Control" content="no-store, no-cache, must-revalidate" />
   <meta http-equiv="Pragma" content="no-cache" />
   <meta http-equiv="Expires" content="0" />
   <meta http-equiv="Strict-Transport-Security" content="max-age=31536000; includeSubDomains; preload" />
-  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'nonce-abc123xyz' https://www.googletagmanager.com https://www.google-analytics.com; object-src 'none'; base-uri 'self';" />
+  <meta
+    http-equiv="Content-Security-Policy"
+    content="script-src 'self' 'nonce-abc123xyz' https://www.googletagmanager.com https://www.google-analytics.com; object-src 'none'; base-uri 'self';"
+  />
 
   <title>Either God Is or God Isn't</title>
 
+  <!-- Google Tag Manager -->
+  <script nonce="abc123xyz">
+    (function(w,d,s,l,i){
+      w[l]=w[l]||[];
+      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      var f = d.getElementsByTagName(s)[0],
+          j = d.createElement(s),
+          dl = l!='dataLayer' ? '&l='+l : '';
+      j.async = true;
+      j.src = 'https://www.googletagmanager.com/gtm.js?id='+i+dl;
+      f.parentNode.insertBefore(j,f);
+    })(window, document, 'script', 'dataLayer', 'GTM-58NRHM6R');
+  </script>
+
   <!-- GA4 Direct Tracking -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF 
-" nonce="abc123xyz"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ39JLZLLF" nonce="abc123xyz"></script>
   <script nonce="abc123xyz">
     window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
+    function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-ZC93LJZLLF 
-');
+    gtag('config', 'G-CZ39JLZLLF');
   </script>
 
   <style>
@@ -30,7 +46,6 @@
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
       color: #fff;
     }
-
     .container {
       display: flex;
       flex-wrap: wrap;
@@ -38,25 +53,21 @@
       align-items: flex-start;
       padding: 60px 20px;
     }
-
     .text, .image {
       max-width: 600px;
       padding: 20px;
       font-size: 1.1em;
       line-height: 1.6;
     }
-
     .text h1 {
       font-size: 2em;
       margin-bottom: 20px;
     }
-
     .image img {
       width: 100%;
       border-radius: 12px;
       box-shadow: 0 0 20px rgba(255,255,255,0.3);
     }
-
     .visit-button {
       display: inline-block;
       margin-top: 20px;
@@ -70,18 +81,15 @@
       animation: pulse 2.5s infinite;
       transition: background-color 0.3s ease, transform 0.2s ease;
     }
-
     .visit-button:hover {
       background-color: #00e6c3;
       transform: scale(1.07);
     }
-
     @keyframes pulse {
       0% { transform: scale(1); }
       50% { transform: scale(1.05); }
       100% { transform: scale(1); }
     }
-
     .debug-badge {
       position: fixed;
       bottom: 10px;
@@ -97,23 +105,33 @@
     }
   </style>
 </head>
-
-
 <body>
-  
+  <!-- GTM No-JS Fallback -->
+  <noscript>
+    <iframe
+      src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
+      height="0" width="0"
+      style="display:none;visibility:hidden"
+    ></iframe>
+  </noscript>
+
   <div class="container">
     <div class="text">
       <h1>Either God Is or God Isn't</h1>
       <p>
         Welcome. Your being here is no accident. Let's consider God Is. The Creator of Heaven’s worlds, moons, stars, galaxies, and universes is certainly not concerned about our non-belief. This does not change Eternal Truth. God is all-powerful and can lift anything. He is also all-knowing so can make something He cannot lift. The answer to this ancient paradox is found here and offers some of the most beautiful truths you may ever read. Our manuscripts logically prove that Hell does not exist, and it is absolutely impossible to sin against God. Christ is much more than a mere title or name, this is our state of Being and death is our gateway to Eternal Life. God’s final judgment, "Welcome my beloved Child to your eternal Heavenly Home which was created before your dream of time began. You are deeply loved forever.” This applies to all of us, without exception because God is Love. Bob
-
       </p>
     </div>
 
     <div class="image">
-      <img src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg" alt="Spiritual Awakening - Robert Hall">
-      <a href="https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click"
-         class="visit-button" id="visit-full-site">
+      <img
+        src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg"
+        alt="Spiritual Awakening - Robert Hall"
+      />
+      <a
+        href="https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click"
+        class="visit-button" id="visit-full-site"
+      >
         🌐 Visit the Full Site
       </a>
     </div>
@@ -123,9 +141,9 @@
 
   <script nonce="abc123xyz">
     document.addEventListener('DOMContentLoaded', function () {
-      const link = document.getElementById('visit-full-site');
-      const badge = document.getElementById('gtm-badge');
-      const isDebug = window.location.search.includes('gtm_debug');
+      var link = document.getElementById('visit-full-site');
+      var badge = document.getElementById('gtm-badge');
+      var isDebug = window.location.search.indexOf('gtm_debug') !== -1;
 
       if (isDebug) {
         badge.style.display = 'block';
@@ -137,7 +155,7 @@
 
       if (link) {
         link.addEventListener('click', function () {
-          setTimeout(() => {
+          setTimeout(function () {
             window.dataLayer.push({
               event: 'visit_full_site_click',
               event_category: 'engagement',
@@ -149,28 +167,6 @@
       }
     });
   </script>
-
-  <noscript>
-    <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-58NRHM6R"
-            height="0" width="0" style="display:none;visibility:hidden"></iframe>
-  </noscript> <!-- Load GA4 directly -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF"></script>
-<script nonce="abc123xyz">
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  // Replace with your actual GA4 Measurement ID
-  gtag('config', 'G-ZC93LJZLLF', {
-    debug_mode: true
-  });
-</script>
-
-
 </body>
 </html>
-
-
-
-
-
+```
