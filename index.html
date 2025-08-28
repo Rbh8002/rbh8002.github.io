@@ -19,23 +19,26 @@
   <script nonce="abc123xyz">
     (function(w,d,s,l,i){
       w[l]=w[l]||[];
-      w[l].push({'gtm.start': new Date().getTime(), event:'gtm.js'});
+      w[l].push({
+        'gtm.start': new Date().getTime(),
+        event: 'gtm.js'
+      });
       var f = d.getElementsByTagName(s)[0],
           j = d.createElement(s),
-          dl = l!='dataLayer' ? '&l='+l : '';
+          dl = l !== 'dataLayer' ? '&l=' + l : '';
       j.async = true;
-      j.src = 'https://www.googletagmanager.com/gtm.js?id='+i+dl;
-      f.parentNode.insertBefore(j,f);
+      j.src = 'https://www.googletagmanager.com/gtm.js?id=' + i + dl;
+      f.parentNode.insertBefore(j, f);
     })(window, document, 'script', 'dataLayer', 'GTM-58NRHM6R');
   </script>
 
   <!-- GA4 Direct Tracking -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-CZ39JLZLLF" nonce="abc123xyz"></script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-ZC93LJZLLF" nonce="abc123xyz"></script>
   <script nonce="abc123xyz">
     window.dataLayer = window.dataLayer || [];
     function gtag(){ dataLayer.push(arguments); }
     gtag('js', new Date());
-    gtag('config', 'G-CZ39JLZLLF');
+    gtag('config', 'G-ZC93LJZLLF');
   </script>
 
   <style>
@@ -73,7 +76,7 @@
       margin-top: 20px;
       padding: 15px 30px;
       background-color: #00c9a7;
-      color: white;
+      color: #fff;
       font-size: 1.1em;
       border-radius: 8px;
       text-decoration: none;
@@ -105,6 +108,7 @@
     }
   </style>
 </head>
+
 <body>
   <!-- GTM No-JS Fallback -->
   <noscript>
@@ -119,33 +123,31 @@
     <div class="text">
       <h1>Either God Is or God Isn't</h1>
       <p>
-        Welcome. Your being here is no accident. Let's consider God Is. The Creator of Heaven’s worlds, moons, stars, galaxies, and universes is certainly not concerned about our non-belief. This does not change Eternal Truth. God is all-powerful and can lift anything. He is also all-knowing so can make something He cannot lift. The answer to this ancient paradox is found here and offers some of the most beautiful truths you may ever read. Our manuscripts logically prove that Hell does not exist, and it is absolutely impossible to sin against God. Christ is much more than a mere title or name, this is our state of Being and death is our gateway to Eternal Life. God’s final judgment, "Welcome my beloved Child to your eternal Heavenly Home which was created before your dream of time began. You are deeply loved forever.” This applies to all of us, without exception because God is Love. Bob
+        Welcome. Your being here is no accident. Let's consider God Is. The Creator of Heaven’s worlds, moons, stars, galaxies, and universes is certainly not concerned about our non-belief. This does not change Eternal Truth. God is all-powerful and can lift anything. He is also all-knowing so can make something He cannot lift. The answer to this ancient paradox is found here and offers some of the most beautiful truths you may ever read. Our manuscripts logically prove that Hell does not exist, and it is absolutely impossible to sin against God. Christ is much more than a mere title or name; this is our state of Being and death is our gateway to Eternal Life. God’s final judgment, "Welcome my beloved Child to your eternal Heavenly Home which was created before your dream of time began. You are deeply loved forever.” This applies to all of us, without exception because God is Love. Bob
       </p>
     </div>
 
     <div class="image">
       <img
         src="https://raw.githubusercontent.com/Rbh8002/landing-page/main/image12.jpg"
-        alt="Spiritual Awakening - Robert Hall"
+        alt="Spiritual Awakening – Robert Hall"
       />
       <a
         href="https://payhip.com/RobertHallsManuscripts?utm_source=landing&utm_medium=button&utm_campaign=spiritual_click"
-        class="visit-button" id="visit-full-site"
-      >
-        🌐 Visit the Full Site
-      </a>
+        class="visit-button"
+        id="visit-full-site"
+      >🌐 Visit the Full Site</a>
     </div>
   </div>
 
-  <div class="debug-badge" id="gtm-badge">Initializing GTM...</div>
+  <div class="debug-badge" id="gtm-badge">Initializing GTM…</div>
 
   <script nonce="abc123xyz">
-    document.addEventListener('DOMContentLoaded', function () {
+    document.addEventListener('DOMContentLoaded', function() {
       var link = document.getElementById('visit-full-site');
       var badge = document.getElementById('gtm-badge');
-      var isDebug = window.location.search.indexOf('gtm_debug') !== -1;
 
-      if (isDebug) {
+      if (window.location.search.indexOf('gtm_debug') !== -1) {
         badge.style.display = 'block';
         badge.textContent = '✅ GTM Container Active';
       }
@@ -154,8 +156,8 @@
       window.dataLayer.push({ event: 'page_loaded' });
 
       if (link) {
-        link.addEventListener('click', function () {
-          setTimeout(function () {
+        link.addEventListener('click', function() {
+          setTimeout(function() {
             window.dataLayer.push({
               event: 'visit_full_site_click',
               event_category: 'engagement',
