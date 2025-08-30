@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url>
+    <loc>https://www.roberthalls-manuscripts.com/</loc>
+    <lastmod>2025-08-30</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+  </url>
+  <!--
+    If you add more pages—say /about, /contact, or subdirectories—
+    copy this <url> block and update <loc> accordingly.
+  -->
+</urlset>
